@@ -146,7 +146,7 @@
         </div>
       </div>
       <div class="collage">
-        <div class="circle c1"><img class="emb" data-c-src="hero_photo" src="assets/emblem.png" alt="Your Insurance Pro emblem"></div>
+        <div class="circle c1"><img class="emb" data-c-src="hero_photo" data-c-focus="hero_focus" src="assets/emblem.png" alt="Your Insurance Pro emblem"></div>
         <div class="circle c2">Veteran owned<br>&amp; operated<small>Service before self</small></div>
         <div class="circle c3"><img class="map" src="assets/licensed-map.svg" alt="Map of the United States with Florida, Georgia, Louisiana, Mississippi, Virginia and Connecticut highlighted"><span>Licensed in<br>6 states</span></div>
       </div>
@@ -172,7 +172,7 @@
   </div></section>
 
   <section class="story" id="about"><div class="wrap">
-    <div class="portrait"><img data-c-src="portrait_photo" src="assets/portrait.jpg" alt="Owner of Your Insurance Pro, veteran and licensed insurance agent" style="object-position:41% 50%"></div>
+    <div class="portrait"><img data-c-src="portrait_photo" data-c-focus="portrait_focus" style="object-position:41% 50%" src="assets/portrait.jpg" alt="Owner of Your Insurance Pro, veteran and licensed insurance agent" style="object-position:41% 50%"></div>
     <div>
       <h2 data-c="story_title">Served our country. Now we serve you.</h2>
       <p class="sub" style="margin-bottom:0" data-c="story_text">Enlisting just weeks before 9/11 taught me what it means to stand up for people when it matters most, building a foundation of discipline, integrity, and mission success. After years of seeing how overwhelming insurance can be, I founded this agency to cut through the confusion and give local families a trusted advocate who puts them first—not the insurance carrier. Clients rely on us for fast answers, transparent guidance, and someone who works tirelessly to protect your budget, navigate complex claims, and handle the tough stuff.</p>
@@ -218,6 +218,7 @@ function applyContent(c){
   var q=function(sel,fn){document.querySelectorAll(sel).forEach(fn)};
   q('[data-c]',function(e){var v=c[e.dataset.c];if(v)e.textContent=v});
   q('[data-c-src]',function(e){var v=c[e.dataset.cSrc];if(v){e.src=v;e.classList.remove('emb');if(e.parentNode)e.parentNode.classList.add('has-photo')}});
+  q('[data-c-focus]',function(e){var v=c[e.dataset.cFocus];if(v)e.style.objectPosition=v});
   q('[data-c-href]',function(e){var v=c[e.dataset.cHref];if(v)e.href=v});
   q('[data-c-mailto]',function(e){var v=c[e.dataset.cMailto];if(v)e.href='mailto:'+v});
   q('[data-c-tel]',function(e){var v=c[e.dataset.cTel];if(v)e.href='tel:'+String(v).replace(/[^+\d]/g,'')});

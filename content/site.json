@@ -9,7 +9,9 @@
   "address": "",
   "hours": "Mon–Fri 9–5 ET",
   "policyholder_url": "",
-  "hero_photo": "",
+  "hero_photo": "assets/hero-family.jpg",
   "portrait_photo": "",
-  "carriers_note": "Geico · Tower Hill · National General Auto & more"
+  "carriers_note": "Geico · Tower Hill · National General Auto & more",
+  "hero_focus": "50% 50%",
+  "portrait_focus": "41% 50%"
 }

@@ -43,6 +43,12 @@ content:
       - name: hero_photo
         label: Big photo at the top of the page
         type: image
+      - name: hero_focus
+        label: Top photo - which part shows in the circle (example 50% 50%; first number moves left to right, second up to down)
+        type: string
       - name: portrait_photo
         label: Your portrait (About section)
         type: image
+      - name: portrait_focus
+        label: Portrait - which part shows in the circle (example 41% 50%)
+        type: string
