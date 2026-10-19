@@ -1,0 +1,45 @@
+media:
+  input: assets
+  output: assets
+content:
+  - name: site
+    label: Website text and photos
+    type: file
+    path: content/site.json
+    fields:
+      - name: hero_headline
+        label: Main headline (top of the page)
+        type: string
+      - name: hero_lead
+        label: Sentence under the headline
+        type: text
+      - name: carriers
+        label: Carriers line (example "20+ carriers")
+        type: string
+      - name: phone
+        label: Phone number
+        type: string
+      - name: quote_email
+        label: Email address (quote requests go here)
+        type: string
+      - name: address
+        label: Address (city and state is fine)
+        type: string
+      - name: hours
+        label: Hours
+        type: string
+      - name: policyholder_url
+        label: Current policyholder button link (full web address)
+        type: string
+      - name: story_title
+        label: About section title
+        type: string
+      - name: story_text
+        label: About section text
+        type: text
+      - name: hero_photo
+        label: Big photo at the top of the page
+        type: image
+      - name: portrait_photo
+        label: Your portrait (About section)
+        type: image
