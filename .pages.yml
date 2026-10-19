@@ -16,6 +16,9 @@ content:
       - name: carriers
         label: Carriers line (example "20+ carriers")
         type: string
+      - name: carriers_note
+        label: Carrier names under that line
+        type: string
       - name: phone
         label: Phone number
         type: string
