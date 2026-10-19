@@ -1,0 +1,211 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Your Insurance Pro | Veteran-Owned Insurance</title>
+<meta name="description" content="Veteran-owned and operated insurance agency. Clear advice, honest quotes, and service you can count on.">
+<style>
+  :root{
+    --navy:#10274a; --navy-2:#1b3a6b; --teal:#2bb3a6; --teal-soft:#dff3f0; --mist:#f3faf9;
+    --ink:#14213a; --muted:#5a6b85; --white:#fff;
+    --radius:20px; --max:1160px;
+  }
+  *{box-sizing:border-box} html{scroll-behavior:smooth}
+  body{margin:0;font-family:system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;color:var(--ink);background:var(--white);line-height:1.55}
+  img{max-width:100%;display:block}
+  a{color:inherit}
+  .wrap{max-width:var(--max);margin:0 auto;padding:0 20px}
+
+  /* header */
+  header{position:sticky;top:0;z-index:10;background:rgba(255,255,255,.94);backdrop-filter:blur(8px);border-bottom:1px solid #e6eef0}
+  .bar{display:flex;align-items:center;justify-content:space-between;height:116px}
+  .brand{display:flex;align-items:center;gap:16px;text-decoration:none;color:var(--navy)}
+  .brand img{height:88px;width:auto}
+  .brand-text{display:flex;flex-direction:column;line-height:1.1}
+  .brand-text b{font-size:27px;font-weight:800;letter-spacing:.01em}
+  .brand-text small{font-size:13px;font-weight:600;letter-spacing:.14em;margin-top:6px;color:var(--navy-2)}
+  nav ul{display:flex;gap:28px;list-style:none;margin:0;padding:0}
+  nav a{text-decoration:none;font-weight:600;color:var(--navy)} nav a:hover{color:var(--teal)}
+  .btn{display:inline-block;background:var(--navy);color:#fff;padding:14px 26px;border-radius:999px;font-weight:700;text-decoration:none;border:2px solid var(--navy);transition:.2s}
+  .btn:hover{background:var(--teal);border-color:var(--teal)}
+  .btn.ghost{background:transparent;color:var(--navy)} .btn.ghost:hover{background:var(--navy);color:#fff;border-color:var(--navy)}
+  .actions{display:flex;gap:12px;align-items:center}
+  .btn.ph{padding:12px 22px}
+  .only-mobile{display:none}
+  .menu-btn{display:none;background:none;border:0;font-size:28px;color:var(--navy)}
+
+  /* hero */
+  .hero{background:var(--teal-soft);overflow:hidden;position:relative}
+  .hero .wrap{display:grid;grid-template-columns:1.05fr 1fr;gap:40px;align-items:center;padding-top:72px;padding-bottom:84px}
+  .eyebrow{display:inline-block;background:#fff;color:var(--navy);font-weight:700;font-size:14px;padding:8px 16px;border-radius:999px;letter-spacing:.04em}
+  h1{font-size:clamp(38px,5.4vw,64px);line-height:1.05;margin:18px 0 18px;color:var(--navy);letter-spacing:-.02em}
+  .lead{font-size:20px;color:var(--navy-2);max-width:34ch}
+  .cta{display:flex;flex-wrap:wrap;gap:14px;margin-top:30px}
+  .collage{position:relative;height:460px}
+  .circle{position:absolute;border-radius:50%;overflow:hidden;display:grid;place-items:center;text-align:center;color:#fff;font-weight:700;padding:20px}
+  .c1{width:350px;height:350px;right:20px;top:0;background:var(--navy-2);border:8px solid #fff;box-shadow:0 18px 44px rgba(16,39,74,.2)}
+  .c1 img{width:100%;height:100%;object-fit:cover}
+  .c1:has(.emb){background:#fff}
+  .c1 .emb{width:78%;height:78%;object-fit:contain}
+  .c2{width:190px;height:190px;left:6px;bottom:20px;background:var(--navy);line-height:1.2;font-size:19px}
+  .c3{width:230px;height:230px;right:0;bottom:0;background:#fff;color:var(--navy);border:6px solid var(--teal);flex-direction:column;padding:26px 18px 14px;box-shadow:0 18px 44px rgba(16,39,74,.2);display:flex;align-items:center;justify-content:center;gap:6px}
+  .c3 .map{width:100%;height:auto}
+  .c3 span{font-size:15px;line-height:1.15;font-weight:800}
+  .circle small{display:block;font-weight:500;opacity:.85;font-size:13px;margin-top:6px}
+  /* PHOTO SLOTS: replace background with  url(assets/yourphoto.jpg) center/cover */
+
+  /* trust strip */
+  .trust{background:var(--navy);color:#fff}
+  .trust .wrap{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;padding-top:26px;padding-bottom:26px;text-align:center}
+  .trust b{display:block;font-size:20px}
+  .trust span{opacity:.8;font-size:14px}
+
+  section{padding:84px 0}
+  h2{font-size:clamp(30px,3.6vw,44px);color:var(--navy);margin:0 0 14px;letter-spacing:-.01em}
+  .sub{color:var(--muted);font-size:18px;max-width:60ch;margin:0 0 40px}
+
+  /* services */
+  .cards{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+  .card{background:var(--mist);border:1px solid #d9ece9;border-radius:var(--radius);padding:28px;transition:.2s}
+  .card:hover{transform:translateY(-4px);box-shadow:0 14px 30px rgba(16,39,74,.1)}
+  .ico{width:54px;height:54px;border-radius:50%;background:var(--navy);color:#fff;display:grid;place-items:center;font-size:24px;margin-bottom:16px}
+  .card h3{margin:0 0 8px;color:var(--navy)} .card p{margin:0 0 14px;color:var(--muted)}
+  .card a{font-weight:700;color:var(--navy);text-decoration:none} .card a:hover{color:var(--teal)}
+
+  /* story */
+  .story{background:var(--mist)}
+  .story .wrap{display:grid;grid-template-columns:1fr 1.1fr;gap:56px;align-items:center}
+  .portrait{aspect-ratio:1;border-radius:50%;overflow:hidden;max-width:440px;margin:0 auto;width:100%;border:10px solid #fff;box-shadow:0 20px 50px rgba(16,39,74,.18)}
+  .portrait img{width:100%;height:100%;object-fit:cover}
+  .checks{list-style:none;padding:0;margin:22px 0 0}
+  .checks li{padding-left:34px;position:relative;margin:12px 0;color:var(--navy-2);font-weight:600}
+  .checks li:before{content:"✓";position:absolute;left:0;top:0;width:24px;height:24px;border-radius:50%;background:var(--teal);color:#fff;display:grid;place-items:center;font-size:14px}
+
+  /* steps */
+  .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;counter-reset:s}
+  .step{border-top:4px solid var(--teal);padding-top:18px}
+  .step:before{counter-increment:s;content:counter(s);display:inline-grid;place-items:center;width:40px;height:40px;border-radius:50%;background:var(--navy);color:#fff;font-weight:800;margin-bottom:10px}
+  .step h3{margin:0 0 6px;color:var(--navy)} .step p{margin:0;color:var(--muted)}
+
+  /* quote band */
+  .band{background:var(--navy);color:#fff;text-align:center}
+  .band h2{color:#fff} .band p{color:#cfe0ef;max-width:52ch;margin:0 auto 28px;font-size:18px}
+  .band .btn{background:var(--teal);border-color:var(--teal)} .band .btn:hover{background:#fff;color:var(--navy);border-color:#fff}
+
+  footer{background:#0b1c37;color:#b9c8dc;padding:56px 0 30px;font-size:15px}
+  footer .grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:36px}
+  footer img{height:64px;filter:brightness(0) invert(1);margin-bottom:12px}
+  footer h4{color:#fff;margin:0 0 10px} footer a{text-decoration:none} footer a:hover{color:#fff}
+  .legal{border-top:1px solid #1d3558;margin-top:34px;padding-top:20px;font-size:13px;opacity:.85}
+
+  @media(max-width:900px){
+    .hero .wrap,.story .wrap{grid-template-columns:1fr} .collage{height:380px}
+    .cards{grid-template-columns:1fr 1fr} .steps{grid-template-columns:1fr} .trust .wrap{grid-template-columns:1fr 1fr}
+    footer .grid{grid-template-columns:1fr} nav{display:none} .menu-btn{display:block}
+  }
+  @media(max-width:700px){.ph{display:none}.only-mobile{display:inline-block}.bar{height:84px}.brand img{height:62px}.brand{gap:10px}.brand-text b{font-size:17px}.brand-text small{font-size:9px;letter-spacing:.08em}.bar .btn{padding:10px 16px;font-size:14px}}
+  @media(max-width:560px){.cards{grid-template-columns:1fr} .collage{height:420px} .c1{width:270px;height:270px;right:0} .c2{width:150px;height:150px;font-size:15px;bottom:10px} .c3{width:190px;height:190px;padding:20px 14px 10px} .c3 span{font-size:13px}}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap bar">
+    <a class="brand" href="#top" aria-label="Your Insurance Pro, veteran owned and operated, home">
+      <img src="assets/emblem.png" alt="">
+      <span class="brand-text"><b>YOUR INSURANCE PRO</b><small>VETERAN OWNED &amp; OPERATED</small></span>
+    </a>
+    <nav aria-label="Main"><ul>
+      <li><a href="#services">Coverage</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#process">How it works</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul></nav>
+    <div class="actions">
+      <a class="btn ghost ph" href="#policyholder">Current policyholder</a>
+      <a class="btn" href="#contact">Get a quote</a>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero" style="padding:0">
+    <div class="wrap">
+      <div>
+        <span class="eyebrow">VETERAN OWNED &amp; OPERATED</span>
+        <h1>Insurance that has your back.</h1>
+        <p class="lead">Straight answers, fair coverage, and a real person who picks up the phone. [Replace with your own one-line promise.]</p>
+        <div class="cta">
+          <a class="btn" href="#contact">Get your free quote</a>
+          <a class="btn ghost" href="#services">See coverage options</a>
+          <a class="btn ghost only-mobile" href="#policyholder">Current policyholder</a>
+        </div>
+      </div>
+      <div class="collage">
+        <div class="circle c1"><img class="emb" src="assets/emblem.png" alt="Your Insurance Pro emblem"></div>
+        <div class="circle c2">Veteran owned<br>&amp; operated<small>Service before self</small></div>
+        <div class="circle c3"><img class="map" src="assets/licensed-map.svg" alt="Map of the United States with Florida, Georgia, Louisiana, Mississippi, Virginia and Connecticut highlighted"><span>Licensed in<br>6 states</span></div>
+      </div>
+    </div>
+  </section>
+
+  <div class="trust"><div class="wrap">
+    <div><b>Veteran owned</b><span>Service before self</span></div>
+    <div><b>[X]+ carriers</b><span>Confirm the number</span></div>
+    <div><b>Licensed in 6 states</b><span>FL · GA · LA · MS · VA · CT</span></div>
+    <div><b>Free, no-pressure quotes</b><span>Same-day response</span></div>
+  </div></div>
+
+  <section id="services"><div class="wrap">
+    <h2>Coverage built around your life</h2>
+    <p class="sub">[Edit to the lines you actually sell.] Pick what you need and we'll shop the market for you.</p>
+    <div class="cards">
+      <div class="card"><div class="ico">🏠</div><h3>Home</h3><p>Protect the place your family comes home to.</p><a href="#contact">Get a quote →</a></div>
+      <div class="card"><div class="ico">🚗</div><h3>Auto</h3><p>Fair rates and fast claims support.</p><a href="#contact">Get a quote →</a></div>
+      <div class="card"><div class="ico">❤️</div><h3>Life</h3><p>Peace of mind for the people who count on you.</p><a href="#contact">Get a quote →</a></div>
+      <div class="card"><div class="ico">💼</div><h3>Business</h3><p>Coverage that keeps your company running.</p><a href="#contact">Get a quote →</a></div>
+    </div>
+  </div></section>
+
+  <section class="story" id="about"><div class="wrap">
+    <div class="portrait"><img src="assets/portrait.jpg" alt="Owner of Your Insurance Pro, veteran and licensed insurance agent" style="object-position:41% 50%"></div>
+    <div>
+      <h2>Served our country. Now we serve you.</h2>
+      <p class="sub" style="margin-bottom:0">Enlisting just weeks before 9/11 taught me what it means to stand up for people when it matters most, building a foundation of discipline, integrity, and mission success. After years of seeing how overwhelming insurance can be, I founded this agency to cut through the confusion and give local families a trusted advocate who puts them first—not the insurance carrier. Clients rely on us for fast answers, transparent guidance, and someone who works tirelessly to protect your budget, navigate complex claims, and handle the tough stuff.</p>
+      <ul class="checks">
+        <li>We work for you, not one insurance company</li>
+        <li>Plain English, no jargon, no pressure</li>
+        <li>Help with claims and yearly policy reviews</li>
+      </ul>
+    </div>
+  </div></section>
+
+  <section id="process"><div class="wrap">
+    <h2>Getting covered is simple</h2>
+    <p class="sub">Three steps, usually done in one day.</p>
+    <div class="steps">
+      <div class="step"><h3>Tell us what you need</h3><p>A quick call or short form. Five minutes.</p></div>
+      <div class="step"><h3>We compare your options</h3><p>We shop carriers and explain the differences clearly.</p></div>
+      <div class="step"><h3>You choose, we handle the rest</h3><p>We set it up and stay with you after the sale.</p></div>
+    </div>
+  </div></section>
+
+  <section class="band" id="contact"><div class="wrap">
+    <h2>Ready for a quote?</h2>
+    <p>Call or send a message and we'll get back to you the same business day. [Add phone and email.]</p>
+    <a class="btn" href="mailto:info@example.com">Request your free quote</a>
+  </div></section>
+</main>
+
+<footer><div class="wrap">
+  <div class="grid">
+    <div><img src="assets/logo.png" alt=""><p>Veteran owned &amp; operated.<br>[Address, city, state]</p></div>
+    <div><h4>Coverage</h4><p><a href="#services">Home</a><br><a href="#services">Auto</a><br><a href="#services">Life</a><br><a href="#services">Business</a></p></div>
+    <div><h4>Contact</h4><p>[Phone]<br>[Email]<br>[Hours]</p></div>
+  </div>
+  <div class="legal"><b>Licensed insurance agent.</b> FL W481824 · CT 18767602 · GA 3456369 · LA 1023177 · MS 10864102 · VA 1350433<br>© 2026 Your Insurance Pro. [Add any required state disclosures here.]</div>
+</div></footer>
+
+</body>
+</html>
