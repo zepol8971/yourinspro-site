@@ -34,6 +34,15 @@ content:
       - name: policyholder_url
         label: Current policyholder button link (full web address)
         type: string
+      - name: facebook_url
+        label: Facebook page link (full web address; leave empty to hide the icon)
+        type: string
+      - name: instagram_url
+        label: Instagram link (full web address; leave empty to hide the icon)
+        type: string
+      - name: linkedin_url
+        label: LinkedIn page link (full web address; leave empty to hide the icon)
+        type: string
       - name: story_title
         label: About section title
         type: string
