@@ -93,8 +93,13 @@
   </div></section>
 
   <section class="quote panel" id="life" hidden><div class="wrap">
-    <form class="req" onsubmit="sendRequest(event,'Life insurance quote request')">
-      <h2>Life insurance quote</h2>
+    <div class="req life-widget">
+      <h2>Instant life insurance quote</h2>
+      <p class="sub">Compare rates from top-rated carriers in about a minute, then apply online if you like what you see. I'm here to help at every step.</p>
+      <div id="container-id"></div>
+    </div>
+    <form class="req" onsubmit="sendRequest(event,'Life insurance quote request')" style="margin-top:28px">
+      <h2>Rather I shop it for you?</h2>
       <p class="sub">Tell me a little about what you're looking for and I'll come back with options from multiple carriers. No medical details needed here; we'll go over those privately by phone.</p>
       <div class="row2">
         <div class="fg"><label>Full name *</label><input name="Name" required autocomplete="name"></div>
@@ -200,5 +205,6 @@ async function sendRequest(e, kind) {
   btn.disabled = false;
 }
 </script>
+<script id="strife" src="https://cdn.quoteandapply.io/widget.js" data-strife-key="96F03puHlWIf0-CW" data-strife-container-id="container-id"></script>
 </body>
 </html>
