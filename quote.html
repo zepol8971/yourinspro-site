@@ -132,6 +132,9 @@
         <div class="fg"><label>Current policy renews on</label><input name="Renewal date" type="date"></div>
       </div>
       <div class="fg"><label>Coverage you need</label><select name="Coverage needed"><option>Not sure, help me decide</option><option>General liability</option><option>Business owners policy (BOP)</option><option>Commercial auto</option><option>Workers' compensation</option><option>Professional liability</option><option>Liquor liability</option><option>Several of these</option></select></div>
+      <div class="fg"><label>Current or prior policy documents <span style="font-weight:500;color:var(--muted)">(optional, but it speeds things up)</span></label>
+        <input type="file" name="Policy documents" multiple accept=".pdf,.jpg,.jpeg,.png,.heic,.doc,.docx">
+        <small style="display:block;color:var(--muted);margin-top:6px">Declarations page, loss runs, or a photo of your current policy. PDF or photos, up to 5 MB total. You can also email them to Quotes@YourInsPro.com.</small></div>
       <div class="fg"><label>Anything else?</label><textarea name="Notes" rows="3" placeholder="Locations, vehicles, contracts that require certificates, etc."></textarea></div>
       <label class="consent"><input type="checkbox" required> I agree that Your Insurance Pro may contact me by phone, text or email about this request. Message and data rates may apply. *</label>
       <input type="text" name="_honey" tabindex="-1" autocomplete="off" style="display:none">
@@ -171,11 +174,22 @@ async function sendRequest(e, kind) {
   const form = e.target, status = form.querySelector('.status'), btn = form.querySelector('button[type=submit]');
   if (form.querySelector('[name=_honey]').value) return;
   const data = { _subject: kind + ' - YourInsPro.com', _template: 'table', _captcha: 'false' };
-  form.querySelectorAll('input[name],select[name],textarea[name]').forEach(el => { if (el.name !== '_honey' && el.value) data[el.name] = el.value; });
+  form.querySelectorAll('input[name],select[name],textarea[name]').forEach(el => { if (el.name !== '_honey' && el.type !== 'file' && el.value) data[el.name] = el.value; });
+  const files = [...form.querySelectorAll('input[type=file]')].flatMap(f => [...f.files]);
+  if (files.reduce((n, f) => n + f.size, 0) > 5 * 1024 * 1024) {
+    status.className = 'status err'; status.textContent = 'Your files are over 5 MB total. Please attach fewer or smaller files, or email them to Quotes@YourInsPro.com.'; return;
+  }
   btn.disabled = true; status.className = 'status'; status.textContent = 'Sending… this can take up to a minute, please keep this page open.';
   const ctl = new AbortController(), timer = setTimeout(() => ctl.abort(), 120000);
   try {
-    const r = await fetch(FORM_ENDPOINT, { method: 'POST', signal: ctl.signal, headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' }, body: JSON.stringify(data) });
+    let init;
+    if (files.length) {
+      const fd = new FormData();
+      Object.entries(data).forEach(([k, v]) => fd.append(k, v));
+      files.forEach((f, i) => fd.append('Document ' + (i + 1), f));
+      init = { method: 'POST', signal: ctl.signal, headers: { 'Accept': 'application/json' }, body: fd };
+    } else init = { method: 'POST', signal: ctl.signal, headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' }, body: JSON.stringify(data) };
+    const r = await fetch(FORM_ENDPOINT, init);
     const j = await r.json();
     if (!r.ok || String(j.success) === 'false') throw new Error('send failed');
     form.reset(); status.className = 'status ok'; status.textContent = "Thanks! I got your request and will reach out the same business day. — Jose";
