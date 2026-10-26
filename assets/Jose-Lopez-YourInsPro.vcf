@@ -1,0 +1,11 @@
+BEGIN:VCARD
+VERSION:3.0
+N:Lopez;Jose;;;
+FN:Jose Lopez
+ORG:Your Insurance Pro LLC
+TITLE:Owner & Licensed Insurance Agent
+TEL;TYPE=WORK,VOICE:+19045673776
+EMAIL;TYPE=WORK:Quotes@YourInsPro.com
+URL:https://YourInsPro.com
+NOTE:Veteran owned & operated. Home, auto, life & business insurance. Licensed in FL, GA, LA, MS, VA & CT.
+END:VCARD
