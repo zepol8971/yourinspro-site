@@ -41,6 +41,22 @@
   .frame iframe{display:block;width:100%;height:1500px;border:0}
   .fallback{margin-top:14px;color:var(--muted);font-size:15px}
 
+  .choices{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:26px}
+  .choice{display:block;text-align:left;cursor:pointer;background:#fff;border:2px solid #cfe7e3;border-radius:var(--radius);padding:20px;font:inherit;color:var(--navy);transition:.2s}
+  .choice:hover{border-color:var(--teal)} .choice.on{border-color:var(--navy);box-shadow:0 10px 24px rgba(16,39,74,.12)}
+  .choice span{font-size:28px} .choice b{display:block;font-size:19px;margin:6px 0 2px} .choice small{color:var(--muted);font-size:14px}
+  @media(max-width:760px){.choices{grid-template-columns:1fr}}
+  .panel[hidden]{display:none}
+  .req{max-width:760px;background:#fff;border:1px solid #d9ece9;border-radius:var(--radius);padding:28px;box-shadow:0 14px 30px rgba(16,39,74,.08)}
+  .req h2{margin:0 0 6px;color:var(--navy)} .req .sub{margin:0 0 18px;color:var(--muted)}
+  .row2{display:grid;grid-template-columns:1fr 1fr;gap:14px} @media(max-width:620px){.row2{grid-template-columns:1fr}}
+  .fg{margin-bottom:14px} .fg label{display:block;font-weight:700;font-size:14px;color:var(--navy);margin-bottom:5px}
+  .fg input,.fg select,.fg textarea{width:100%;padding:12px 14px;border:1px solid #cfdcdf;border-radius:12px;font:inherit;background:#fff}
+  .fg input:focus,.fg select:focus,.fg textarea:focus{outline:2px solid var(--teal);border-color:var(--teal)}
+  .consent{display:flex;gap:10px;align-items:flex-start;font-size:14px;color:var(--muted)} .consent input{margin-top:4px}
+  .req button{border:0;cursor:pointer;width:100%;margin-top:6px;font-size:17px}
+  .status{margin-top:12px;font-weight:700} .status.ok{color:#0f766e} .status.err{color:#b42318}
+
   footer{background:#0b1c37;color:#b9c8dc;padding:40px 0 30px;font-size:15px}
   footer a{text-decoration:none} footer a:hover{color:#fff}
   .legal a{color:#dbe7f5}
@@ -67,11 +83,64 @@
 <main>
   <section class="intro"><div class="wrap">
     <h1>Start your free quote</h1>
-    <p class="lead">Answer a few questions about your home or car. It takes about five minutes, and a licensed agent reviews every quote and follows up the same business day.</p>
-    <p class="other">Looking for life or business insurance? Call or text <a href="tel:9045673776">(904) 567-3776</a> or email <a href="mailto:Quotes@YourInsPro.com">Quotes@YourInsPro.com</a>.</p>
+    <p class="lead">Pick the coverage you need. A licensed agent reviews every request and follows up the same business day.</p>
+    <div class="choices" role="tablist">
+      <button class="choice on" data-panel="auto-home" role="tab"><span>🏠🚗</span><b>Home &amp; Auto</b><small>Auto, home, condo or renters. Online in about 5 minutes.</small></button>
+      <button class="choice" data-panel="life" role="tab"><span>❤️</span><b>Life Insurance</b><small>Term or permanent coverage to protect your family.</small></button>
+      <button class="choice" data-panel="business" role="tab"><span>💼</span><b>Business Insurance</b><small>General liability, BOP, commercial auto and more.</small></button>
+    </div>
+    <p class="other">Prefer to talk? Call or text <a href="tel:9045673776">(904) 567-3776</a>.</p>
   </div></section>
 
-  <section class="quote"><div class="wrap">
+  <section class="quote panel" id="life" hidden><div class="wrap">
+    <form class="req" onsubmit="sendRequest(event,'Life insurance quote request')">
+      <h2>Life insurance quote</h2>
+      <p class="sub">Tell me a little about what you're looking for and I'll come back with options from multiple carriers. No medical details needed here; we'll go over those privately by phone.</p>
+      <div class="row2">
+        <div class="fg"><label>Full name *</label><input name="Name" required autocomplete="name"></div>
+        <div class="fg"><label>Phone *</label><input name="Phone" type="tel" required autocomplete="tel"></div>
+        <div class="fg"><label>Email *</label><input name="Email" type="email" required autocomplete="email"></div>
+        <div class="fg"><label>State you live in *</label><select name="State" required><option value="">Choose…</option><option>Florida</option><option>Georgia</option><option>Louisiana</option><option>Mississippi</option><option>Virginia</option><option>Connecticut</option><option>Other</option></select></div>
+        <div class="fg"><label>Age</label><input name="Age" inputmode="numeric" placeholder="e.g. 42"></div>
+        <div class="fg"><label>Tobacco or nicotine use?</label><select name="Tobacco"><option value="">Choose…</option><option>No</option><option>Yes</option></select></div>
+        <div class="fg"><label>Type of coverage</label><select name="Coverage type"><option>Not sure, help me decide</option><option>Term life</option><option>Whole / permanent life</option><option>Final expense</option><option>Mortgage protection</option></select></div>
+        <div class="fg"><label>Coverage amount</label><select name="Coverage amount"><option>Not sure</option><option>Under $100,000</option><option>$100,000 – $250,000</option><option>$250,000 – $500,000</option><option>$500,000 – $1,000,000</option><option>Over $1,000,000</option></select></div>
+      </div>
+      <div class="fg"><label>Best time to reach you</label><select name="Best time"><option>Anytime</option><option>Morning</option><option>Afternoon</option><option>Evening</option></select></div>
+      <div class="fg"><label>Anything else?</label><textarea name="Notes" rows="3" placeholder="Who you'd like to protect, existing coverage, etc."></textarea></div>
+      <label class="consent"><input type="checkbox" required> I agree that Your Insurance Pro may contact me by phone, text or email about this request. Message and data rates may apply. *</label>
+      <input type="text" name="_honey" tabindex="-1" autocomplete="off" style="display:none">
+      <button class="btn" type="submit">Request my life quote</button>
+      <div class="status" role="status"></div>
+    </form>
+  </div></section>
+
+  <section class="quote panel" id="business" hidden><div class="wrap">
+    <form class="req" onsubmit="sendRequest(event,'Business insurance quote request')">
+      <h2>Business insurance quote</h2>
+      <p class="sub">Share the basics and I'll shop carriers that fit your type of business.</p>
+      <div class="row2">
+        <div class="fg"><label>Your name *</label><input name="Name" required autocomplete="name"></div>
+        <div class="fg"><label>Business name *</label><input name="Business name" required autocomplete="organization"></div>
+        <div class="fg"><label>Phone *</label><input name="Phone" type="tel" required autocomplete="tel"></div>
+        <div class="fg"><label>Email *</label><input name="Email" type="email" required autocomplete="email"></div>
+        <div class="fg"><label>What does the business do? *</label><input name="Business type" required placeholder="e.g. restaurant, contractor, retail"></div>
+        <div class="fg"><label>Business state *</label><select name="State" required><option value="">Choose…</option><option>Florida</option><option>Georgia</option><option>Louisiana</option><option>Mississippi</option><option>Virginia</option><option>Connecticut</option><option>Other</option></select></div>
+        <div class="fg"><label>Years in business</label><select name="Years in business"><option>Not started yet</option><option>Less than 1</option><option>1–3</option><option>3–5</option><option>5+</option></select></div>
+        <div class="fg"><label>Number of employees</label><input name="Employees" inputmode="numeric" placeholder="e.g. 4"></div>
+        <div class="fg"><label>Approximate annual revenue</label><input name="Annual revenue" placeholder="e.g. $250,000"></div>
+        <div class="fg"><label>Current policy renews on</label><input name="Renewal date" type="date"></div>
+      </div>
+      <div class="fg"><label>Coverage you need</label><select name="Coverage needed"><option>Not sure, help me decide</option><option>General liability</option><option>Business owners policy (BOP)</option><option>Commercial auto</option><option>Workers' compensation</option><option>Professional liability</option><option>Liquor liability</option><option>Several of these</option></select></div>
+      <div class="fg"><label>Anything else?</label><textarea name="Notes" rows="3" placeholder="Locations, vehicles, contracts that require certificates, etc."></textarea></div>
+      <label class="consent"><input type="checkbox" required> I agree that Your Insurance Pro may contact me by phone, text or email about this request. Message and data rates may apply. *</label>
+      <input type="text" name="_honey" tabindex="-1" autocomplete="off" style="display:none">
+      <button class="btn" type="submit">Request my business quote</button>
+      <div class="status" role="status"></div>
+    </form>
+  </div></section>
+
+  <section class="quote panel" id="auto-home"><div class="wrap">
     <div class="frame">
       <iframe src="https://www.agentinsure.com/compare/auto-insurance-home-insurance/yourinsurancepr/quote.aspx" name="Secure Live Insurance Quoting" title="Secure online insurance quote form" loading="lazy"></iframe>
     </div>
@@ -83,5 +152,37 @@
   <div class="legal"><a href="terms.html">Terms &amp; Conditions</a> &nbsp;·&nbsp; <a href="privacy.html">Privacy Policy</a><br><b>Licensed insurance agent.</b> FL W481824 · CT 18767602 · GA 3456369 · LA 1023177 · MS 10864102 · VA 1350433<br>© 2026 Your Insurance Pro.</div>
 </div></footer>
 
+<script>
+/* Quote chooser: Home & Auto uses the EZLynx form; life and business requests are emailed to the
+   agency through FormSubmit (the first submission sends an activation email to Quotes@YourInsPro.com). */
+const FORM_ENDPOINT = 'https://formsubmit.co/ajax/Quotes@YourInsPro.com';
+function showPanel(id) {
+  document.querySelectorAll('.choice').forEach(b => b.classList.toggle('on', b.dataset.panel === id));
+  document.querySelectorAll('.panel').forEach(p => p.hidden = p.id !== id);
+}
+document.querySelectorAll('.choice').forEach(b => b.addEventListener('click', () => {
+  showPanel(b.dataset.panel); history.replaceState(null, '', '#' + b.dataset.panel);
+  document.getElementById(b.dataset.panel).scrollIntoView({ behavior: 'smooth', block: 'start' });
+}));
+const start = location.hash.slice(1);
+if (document.getElementById(start) && document.getElementById(start).classList.contains('panel')) showPanel(start);
+async function sendRequest(e, kind) {
+  e.preventDefault();
+  const form = e.target, status = form.querySelector('.status'), btn = form.querySelector('button[type=submit]');
+  if (form.querySelector('[name=_honey]').value) return;
+  const data = { _subject: kind + ' - YourInsPro.com', _template: 'table', _captcha: 'false' };
+  form.querySelectorAll('input[name],select[name],textarea[name]').forEach(el => { if (el.name !== '_honey' && el.value) data[el.name] = el.value; });
+  btn.disabled = true; status.className = 'status'; status.textContent = 'Sending…';
+  try {
+    const r = await fetch(FORM_ENDPOINT, { method: 'POST', headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' }, body: JSON.stringify(data) });
+    const j = await r.json();
+    if (!r.ok || String(j.success) === 'false') throw new Error('send failed');
+    form.reset(); status.className = 'status ok'; status.textContent = "Thanks! I got your request and will reach out the same business day. — Jose";
+  } catch (err) {
+    status.className = 'status err'; status.textContent = "Sorry, that didn't go through. Please call or text (904) 567-3776.";
+  }
+  btn.disabled = false;
+}
+</script>
 </body>
 </html>
