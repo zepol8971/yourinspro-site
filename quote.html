@@ -172,15 +172,17 @@ async function sendRequest(e, kind) {
   if (form.querySelector('[name=_honey]').value) return;
   const data = { _subject: kind + ' - YourInsPro.com', _template: 'table', _captcha: 'false' };
   form.querySelectorAll('input[name],select[name],textarea[name]').forEach(el => { if (el.name !== '_honey' && el.value) data[el.name] = el.value; });
-  btn.disabled = true; status.className = 'status'; status.textContent = 'Sending…';
+  btn.disabled = true; status.className = 'status'; status.textContent = 'Sending… this can take up to a minute, please keep this page open.';
+  const ctl = new AbortController(), timer = setTimeout(() => ctl.abort(), 120000);
   try {
-    const r = await fetch(FORM_ENDPOINT, { method: 'POST', headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' }, body: JSON.stringify(data) });
+    const r = await fetch(FORM_ENDPOINT, { method: 'POST', signal: ctl.signal, headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' }, body: JSON.stringify(data) });
     const j = await r.json();
     if (!r.ok || String(j.success) === 'false') throw new Error('send failed');
     form.reset(); status.className = 'status ok'; status.textContent = "Thanks! I got your request and will reach out the same business day. — Jose";
   } catch (err) {
     status.className = 'status err'; status.textContent = "Sorry, that didn't go through. Please call or text (904) 567-3776.";
   }
+  clearTimeout(timer);
   btn.disabled = false;
 }
 </script>
