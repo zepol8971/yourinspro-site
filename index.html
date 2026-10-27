@@ -71,6 +71,10 @@
 
   /* services */
   .cards{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+  .more-h{margin:34px 0 14px;color:var(--navy);font-size:20px}
+  .chips{display:flex;flex-wrap:wrap;gap:10px}
+  .chips a{display:inline-flex;align-items:center;gap:6px;padding:10px 16px;border-radius:999px;background:#fff;border:1px solid #d9ece9;color:var(--navy);font-weight:700;text-decoration:none;white-space:nowrap}
+  .chips a:hover{border-color:var(--teal);color:var(--teal)}
   .card{background:var(--mist);border:1px solid #d9ece9;border-radius:var(--radius);padding:28px;transition:.2s}
   .card:hover{transform:translateY(-4px);box-shadow:0 14px 30px rgba(16,39,74,.1)}
   .ico{width:54px;height:54px;border-radius:50%;background:var(--navy);color:#fff;display:grid;place-items:center;font-size:24px;margin-bottom:16px}
@@ -182,8 +186,19 @@
     <div class="cards">
       <div class="card"><div class="ico">🏠</div><h3>Home</h3><p>Protect the place your family comes home to.</p><a href="quote.html">Get a quote →</a></div>
       <div class="card"><div class="ico">🚗</div><h3>Auto</h3><p>Fair rates and fast claims support.</p><a href="quote.html">Get a quote →</a></div>
-      <div class="card"><div class="ico">❤️</div><h3>Life</h3><p>Peace of mind for the people who count on you.</p><a href="#contact">Get a quote →</a></div>
-      <div class="card"><div class="ico">💼</div><h3>Business</h3><p>Coverage that keeps your company running.</p><a href="#contact">Get a quote →</a></div>
+      <div class="card"><div class="ico">❤️</div><h3>Life</h3><p>Peace of mind for the people who count on you.</p><a href="quote.html#life">Get a quote →</a></div>
+      <div class="card"><div class="ico">💼</div><h3>Business</h3><p>Coverage that keeps your company running.</p><a href="quote.html#business">Get a quote →</a></div>
+    </div>
+    <h3 class="more-h">We also cover</h3>
+    <div class="chips">
+      <a href="quote.html#life">🩹 Accident</a>
+      <a href="quote.html#life">🩺 Critical illness</a>
+      <a href="quote.html#life">📈 Annuities</a>
+      <a href="quote.html#business">🚚 Commercial vehicles</a>
+      <a href="quote.html#business">🚛 Trucking</a>
+      <a href="quote.html">⛳ Golf carts</a>
+      <a href="quote.html">🏍️ Motorcycle</a>
+      <a href="quote.html">🏢 Condo &amp; renters</a>
     </div>
   </div></section>
 
@@ -236,7 +251,7 @@
 <footer><div class="wrap">
   <div class="grid">
     <div><img src="assets/logo.png" alt=""><p>Veteran Owned &amp; Operated<span class="addr" data-c="address"></span></p></div>
-    <div><h4>Coverage</h4><p><a href="#services">Home</a><br><a href="#services">Auto</a><br><a href="#services">Life</a><br><a href="#services">Business</a></p></div>
+    <div><h4>Coverage</h4><p><a href="#services">Home</a><br><a href="#services">Auto</a><br><a href="#services">Life</a><br><a href="#services">Business</a><br><a href="#services">Accident &amp; critical illness</a><br><a href="#services">Annuities</a><br><a href="#services">Commercial vehicle &amp; trucking</a><br><a href="#services">Golf carts</a></p></div>
     <div><h4>Contact</h4><p><span data-c="phone">(904) 567-3776</span><br><span data-c="quote_email">Quotes@YourInsPro.com</span><br><span data-c="hours">Mon–Fri 9–5 ET</span></p>
       <div class="social" aria-label="Follow Your Insurance Pro">
         <a data-c-social="facebook_url" href="https://www.facebook.com/YourInsuranceProLLC" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24"><path d="M13.5 22v-8h2.7l.4-3.2h-3.1V8.8c0-.9.3-1.5 1.6-1.5h1.7V4.4c-.3 0-1.3-.1-2.5-.1-2.4 0-4.1 1.5-4.1 4.2v2.3H7.5V14h2.7v8h3.3z"/></svg></a>
