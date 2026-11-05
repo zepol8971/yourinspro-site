@@ -103,6 +103,9 @@
   .band{background:var(--navy);color:#fff;text-align:center}
   .band h2{color:#fff} .band p{color:#cfe0ef;max-width:52ch;margin:0 auto 28px;font-size:18px}
   .band .btn{background:var(--teal);border-color:var(--teal)} .band .btn:hover{background:#fff;color:var(--navy);border-color:#fff}
+  .cta-row{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+  .band .btn.text-us{background:transparent;border-color:#fff;color:#fff} .band .btn.text-us:hover{background:#fff;color:var(--navy)}
+  .band .sms-note{font-size:13px;margin:16px auto 0;color:#9fb3cc} .band .sms-note a{color:#cfe0ef}
 
   footer{background:#0b1c37;color:#b9c8dc;padding:56px 0 30px;font-size:15px}
   footer .grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:36px}
@@ -246,8 +249,10 @@
   <section class="band" id="contact"><div class="wrap">
     <h2>Ready for a quote?</h2>
     <p>Call, text, or send a message and we'll get back to you the same business day.</p>
-    <p class="contact-line"><a data-c-tel="phone" data-c="phone" href="tel:9045673776">(904) 567-3776</a> &nbsp;·&nbsp; <a data-c-mailto="quote_email" data-c="quote_email" href="mailto:Quotes@YourInsPro.com">Quotes@YourInsPro.com</a></p>
-    <a class="btn" href="quote.html">Start an online quote</a>
+    <p class="contact-line">Call or text <a data-c-tel="phone" href="tel:9045673776">904-JOSE-INS (567-3776)</a></p>
+    <p class="contact-line" style="margin-top:-12px"><a data-c-mailto="quote_email" data-c="quote_email" href="mailto:Quotes@YourInsPro.com">Quotes@YourInsPro.com</a></p>
+    <div class="cta-row"><a class="btn" href="quote.html">Start an online quote</a> <a class="btn text-us" href="sms:+19045673776">Text us</a></div>
+    <p class="sms-note">Msg &amp; data rates may apply. Reply STOP to opt out. <a href="terms.html">Terms</a> · <a href="privacy.html">Privacy</a></p>
   </div></section>
 </main>
 
@@ -255,7 +260,7 @@
   <div class="grid">
     <div><img src="assets/logo.png" alt=""><p>Veteran Owned &amp; Operated<span class="addr" data-c="address"></span></p></div>
     <div><h4>Coverage</h4><p><a href="#services">Home</a><br><a href="#services">Auto</a><br><a href="#services">Life</a><br><a href="#services">Business</a><br><a href="#services">Accident &amp; critical illness</a><br><a href="#services">Annuities</a><br><a href="#services">Commercial vehicle &amp; trucking</a><br><a href="#services">Golf carts</a></p></div>
-    <div><h4>Contact</h4><p><span data-c="phone">(904) 567-3776</span><br><span data-c="quote_email">Quotes@YourInsPro.com</span><br><span data-c="hours">Mon–Fri 9–5 ET</span></p>
+    <div><h4>Contact</h4><p>Call or text <span data-c="phone">(904) 567-3776</span><br><span data-c="quote_email">Quotes@YourInsPro.com</span><br><span data-c="hours">Mon–Fri 9–5 ET</span></p>
       <div class="social" aria-label="Follow Your Insurance Pro">
         <a data-c-social="facebook_url" href="https://www.facebook.com/YourInsuranceProLLC" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24"><path d="M13.5 22v-8h2.7l.4-3.2h-3.1V8.8c0-.9.3-1.5 1.6-1.5h1.7V4.4c-.3 0-1.3-.1-2.5-.1-2.4 0-4.1 1.5-4.1 4.2v2.3H7.5V14h2.7v8h3.3z"/></svg></a>
         <a data-c-social="instagram_url" href="" target="_blank" rel="noopener" aria-label="Instagram" hidden><svg viewBox="0 0 24 24"><path d="M12 7.3A4.7 4.7 0 1 0 12 16.7 4.7 4.7 0 0 0 12 7.3zm0 7.7a3 3 0 1 1 0-6 3 3 0 0 1 0 6zm4.9-8.9a1.1 1.1 0 1 0 0 2.2 1.1 1.1 0 0 0 0-2.2zM21.9 7.1c-.1-1.6-.4-3-1.6-4.2S17.5 1.3 15.9 1.2C14.3 1.1 9.7 1.1 8.1 1.2 6.5 1.3 5.1 1.6 3.9 2.8S2.3 5.5 2.2 7.1c-.1 1.6-.1 6.2 0 7.8.1 1.6.4 3 1.6 4.2s2.6 1.5 4.2 1.6c1.6.1 6.2.1 7.8 0 1.6-.1 3-.4 4.2-1.6s1.5-2.6 1.6-4.2c.1-1.6.1-6.2 0-7.8zM19.8 17a3.2 3.2 0 0 1-1.8 1.8c-1.3.5-4.2.4-5.6.4s-4.3.1-5.6-.4A3.2 3.2 0 0 1 5 17c-.5-1.3-.4-4.2-.4-5.6s-.1-4.3.4-5.6A3.2 3.2 0 0 1 6.8 4c1.3-.5 4.2-.4 5.6-.4s4.3-.1 5.6.4a3.2 3.2 0 0 1 1.8 1.8c.5 1.3.4 4.2.4 5.6s.1 4.3-.4 5.6z"/></svg></a>
