@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self' https://formsubmit.co https://script.google.com https://script.googleusercontent.com; form-action 'self' https://formsubmit.co; frame-src 'none'; object-src 'none'; base-uri 'self'; upgrade-insecure-requests">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://static.cloudflareinsights.com https://www.googletagmanager.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://*.google-analytics.com https://www.googletagmanager.com; font-src 'self'; connect-src 'self' https://formsubmit.co https://script.google.com https://script.googleusercontent.com https://cloudflareinsights.com https://*.google-analytics.com https://*.analytics.google.com https://www.googletagmanager.com; form-action 'self' https://formsubmit.co; frame-src 'none'; object-src 'none'; base-uri 'self'; upgrade-insecure-requests">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <script>if(top!==self){try{top.location=self.location}catch(e){document.documentElement.style.display='none'}}</script>
 <link rel="canonical" href="https://yourinspro.com/privacy.html">
@@ -52,7 +52,7 @@
   <a class="brand" href="/" aria-label="Your Insurance Pro home"><img src="assets/emblem.png" alt=""><span class="brand-text"><b>YOUR INSURANCE PRO</b><small>Veteran Owned &amp; Operated</small></span></a>
   <a class="back" href="/">Back to home</a>
 </div></header>
-<div class="hero"><div><h1>Privacy Policy</h1><p>Effective November 24, 2026</p></div></div>
+<div class="hero"><div><h1>Privacy Policy</h1><p>Effective November 25, 2026</p></div></div>
 <main>
 
 <p>This Privacy Policy explains how <b>Your Insurance Pro LLC</b>, doing business as <b>Your Insurance Pro</b> ("we," "us"), collects, uses, and protects personal information when you visit YourInsPro.com, contact us, request a quote, become a client, or receive our text messages. Our <a href="terms.html">Terms &amp; Conditions</a> also apply.</p>
@@ -72,7 +72,9 @@
 <h3>Information from others</h3>
 <p>With your permission, and as the law allows, we may receive information from insurance carriers, consumer reporting agencies (for example, loss history and driving records), and public records in order to quote and service your coverage.</p>
 <h3>Website information</h3>
-<p>The Site is hosted by GitHub Pages, which, like most web hosts, may record technical information such as IP address, browser type, and pages requested. We do not use advertising cookies or analytics tools.</p>
+<p>The Site is hosted by GitHub Pages, which, like most web hosts, may record technical information such as IP address, browser type, and pages requested. We do not use advertising cookies.</p>
+<h3 id="analytics">Website traffic statistics</h3>
+<p>We use Cloudflare Web Analytics, which counts visits without cookies and without identifying you, so we can see how many people use the Site. If you tap "Accept" on our cookie notice, we also use Google Analytics, which sets cookies to measure which pages are visited, how long, and from what kind of device and general location. We use it only to improve the Site; we do not use it for advertising and we do not sell this information. If you tap "No thanks," Google Analytics does not load. You can change your choice at any time: <a href="#analytics" onclick="return window.yipCookieSettings&&window.yipCookieSettings()">Cookie settings</a>. Google's use of this data is described at <a href="https://policies.google.com/technologies/partner-sites" target="_blank" rel="noopener">policies.google.com/technologies/partner-sites</a>.</p>
 <p>The forms on this Site collect what you type into them. Quote and callback requests (including the chat assistant) are sent to us by email through FormSubmit, a form service. Meeting bookings are handled through Google (Apps Script, Calendar and Gmail). Life insurance applications are completed on our life-insurance partner's website, which has its own privacy policy. We use this information only to quote, service and contact you about your insurance. We do not sell it. If you agree to text messages, reply STOP at any time to opt out or HELP for help.</p>
 
 <h2>2. How We Use Information</h2>
@@ -123,5 +125,6 @@
   © 2026 Your Insurance Pro. Licensed insurance agent: FL W481824 · CT 18767602 · GA 3456369 · LA 1023177 · MS 10864102 · VA 1350433
 </div></footer>
 <script src="assets/chat-widget.js" defer></script>
+<script src="assets/analytics.js" defer></script>
 </body>
 </html>
