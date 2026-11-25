@@ -31,9 +31,6 @@ content:
       - name: hours
         label: Hours
         type: string
-      - name: policyholder_url
-        label: Current policyholder button link (full web address)
-        type: string
       - name: facebook_url
         label: Facebook page link (full web address; leave empty to hide the icon)
         type: string

@@ -2,9 +2,22 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self' https://formsubmit.co https://script.google.com https://script.googleusercontent.com; form-action 'self' https://formsubmit.co; frame-src 'none'; object-src 'none'; base-uri 'self'; upgrade-insecure-requests">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<script>if(top!==self){try{top.location=self.location}catch(e){document.documentElement.style.display='none'}}</script>
+<link rel="canonical" href="https://yourinspro.com/start.html">
+<link rel="icon" type="image/png" href="assets/emblem.png">
+<link rel="apple-touch-icon" href="assets/emblem.png">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Your Insurance Pro">
+<meta property="og:title" content="Your Insurance Pro | Jose Lopez">
+<meta property="og:description" content="Get a free insurance quote, call or text, or find carrier help from Your Insurance Pro. Veteran Owned &amp; Operated.">
+<meta property="og:url" content="https://yourinspro.com/start.html">
+<meta property="og:image" content="https://yourinspro.com/assets/logo.png">
+<meta name="twitter:card" content="summary">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Your Insurance Pro | Jose Lopez</title>
-<meta name="description" content="Get a free insurance quote, call or text, or manage your policy with Your Insurance Pro. Veteran Owned &amp; Operated.">
+<meta name="description" content="Get a free insurance quote, call or text, or find carrier help from Your Insurance Pro. Veteran Owned &amp; Operated.">
 <meta name="robots" content="noindex">
 <style>
   :root{--navy:#10274a;--navy-2:#1b3a6b;--teal:#2bb3a6;--teal-soft:#dff3f0;--mist:#f3faf9;--ink:#14213a;--muted:#5a6b85}
@@ -22,7 +35,7 @@
   .actions{padding:14px 22px;display:grid;gap:12px}
   .btn{display:flex;align-items:center;gap:14px;padding:16px 18px;border-radius:16px;text-decoration:none;font-weight:700;font-size:17px;color:var(--navy);background:var(--mist);border:2px solid #e3eeec}
   .btn small{display:block;font-weight:500;font-size:13px;color:var(--muted)}
-  .btn .i{font-size:24px;width:30px;text-align:center}
+  .btn .i{width:30px;display:flex;justify-content:center;flex:none} .btn .i svg{width:24px;height:24px}
   .btn.primary{background:var(--teal);border-color:var(--teal);color:#fff} .btn.primary small{color:#e9fbf8}
   .btn:active{transform:scale(.98)}
   .row{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px}
@@ -46,22 +59,23 @@
   <p class="hello">Thanks for stopping by. Pick what you need below, and you'll hear back from a real person, usually the same business day.</p>
 
   <div class="actions">
-    <a class="btn primary" href="quote.html"><span class="i">📝</span><span>Get a free quote<small>Home, auto, life or business</small></span></a>
+    <a class="btn primary" href="quote.html"><span class="i"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M6 3h9l4 4v14H6zM14 3v5h5M9 13h7M9 17h5"/></svg></span><span>Get a free quote<small>Home, auto, life or business</small></span></a>
     <div class="row">
-      <a class="btn" href="tel:9045673776"><span class="i">📞</span>Call</a>
-      <a class="btn" href="sms:+19045673776?body=Hi%20Jose%2C%20I%27d%20like%20an%20insurance%20quote."><span class="i">💬</span>Text</a>
-      <a class="btn" href="mailto:Quotes@YourInsPro.com?subject=Quote%20request"><span class="i">✉️</span>Email</a>
+      <a class="btn" href="tel:9045673776"><span class="i"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M5 3h4l2 5-2.5 1.5a11 11 0 0 0 6 6L16 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 5a2 2 0 0 1 2-2z"/></svg></span>Call</a>
+      <a class="btn" href="sms:+19045673776?body=Hi%20Jose%2C%20I%27d%20like%20an%20insurance%20quote."><span class="i"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M4 5h16v11H9l-5 4z"/></svg></span>Text</a>
+      <a class="btn" href="mailto:Quotes@YourInsPro.com?subject=Quote%20request"><span class="i"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M3 6h18v12H3zM3 7l9 6 9-6"/></svg></span>Email</a>
     </div>
-    <a class="btn" href="assets/Jose-Lopez-YourInsPro.vcf" download><span class="i">👤</span><span>Save my contact<small>Add Jose to your phone</small></span></a>
-    <a class="btn" href="https://customerservice.agentinsure.com/EzLynxCustomerService/web/yourinsurancepr/account/login" target="_blank" rel="noopener"><span class="i">🛡️</span><span>Current policyholder<small>ID cards, payments, changes &amp; certificates</small></span></a>
-    <a class="btn" href="index.html"><span class="i">🌐</span><span>Visit YourInsPro.com<small>Home, auto, life &amp; business coverage</small></span></a>
+    <a class="btn" href="assets/Jose-Lopez-YourInsPro.vcf" download><span class="i"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M4 21c1-4 4-6 8-6s7 2 8 6M12 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8z"/></svg></span><span>Save my contact<small>Add Jose to your phone</small></span></a>
+    <a class="btn" href="carriers.html"><span class="i"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"/></svg></span><span>Carriers &amp; Help<small>Claims and customer service numbers</small></span></a>
+    <a class="btn" href="index.html"><span class="i"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M3 12h18M12 3c3 3.5 3 14.5 0 18M12 3c-3 3.5-3 14.5 0 18"/><circle fill="none" stroke="currentColor" stroke-width="2" cx="12" cy="12" r="9"/></svg></span><span>Visit YourInsPro.com<small>Home, auto, life &amp; business coverage</small></span></a>
   </div>
 
   <footer>
     (904) 567-3776 · Quotes@YourInsPro.com · Mon–Fri 9–5 ET<br>
     <b>Licensed insurance agent.</b> FL W481824 · CT 18767602 · GA 3456369 · LA 1023177 · MS 10864102 · VA 1350433<br>
-    <a href="terms.html">Terms</a> · <a href="privacy.html">Privacy</a> · © 2026 Your Insurance Pro
+    <a href="terms.html">Terms</a> · <a href="privacy.html">Privacy</a> · <a href="carriers.html">Carriers &amp; Help</a> · © 2026 Your Insurance Pro
   </footer>
 </div>
+<script src="assets/chat-widget.js" defer></script>
 </body>
 </html>

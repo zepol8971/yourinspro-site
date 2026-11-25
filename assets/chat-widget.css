@@ -1,0 +1,63 @@
+.yip-chat,.yip-chat *{box-sizing:border-box}
+.yip-chat{--navy:#10274a;--navy-2:#1b3a6b;--teal:#2bb3a6;--teal-soft:#dff3f0;--mist:#f3faf9;--ink:#14213a;--muted:#5a6b85;font-family:system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;color:var(--ink);line-height:1.45;font-size:15px}
+.yip-chat-launch{position:fixed;right:16px;bottom:16px;z-index:2147483000;display:inline-flex;align-items:center;gap:8px;background:var(--navy);color:#fff;border:2px solid var(--navy);border-radius:999px;padding:12px 20px;font:700 15px/1 inherit;font-family:inherit;cursor:pointer;box-shadow:0 8px 24px rgba(16,39,74,.3)}
+.yip-chat-launch:hover{background:var(--teal);border-color:var(--teal)}
+.yip-chat svg{width:20px;height:20px;flex:none}
+.yip-chat button:focus-visible,.yip-chat a:focus-visible,.yip-chat input:focus-visible,.yip-chat select:focus-visible,.yip-chat textarea:focus-visible{outline:3px solid var(--teal);outline-offset:2px}
+.yip-chat-panel{position:fixed;right:16px;bottom:16px;z-index:2147483001;width:370px;max-width:calc(100vw - 32px);height:560px;max-height:calc(100vh - 32px);max-height:calc(100dvh - 32px);display:flex;flex-direction:column;background:#fff;border:1px solid #d9ece9;border-radius:20px;box-shadow:0 18px 48px rgba(16,39,74,.28);overflow:hidden}
+.yip-chat-panel[hidden],.yip-chat-launch[hidden]{display:none}
+.yip-chat-head{display:flex;align-items:center;justify-content:space-between;gap:8px;background:var(--navy);color:#fff;padding:12px 14px}
+.yip-chat-head h2{margin:0;font-size:16px;font-weight:800;color:#fff}
+.yip-chat-head small{display:block;font-weight:500;font-size:12px;opacity:.85}
+.yip-chat-x{background:transparent;border:0;color:#fff;cursor:pointer;padding:6px;border-radius:8px;display:inline-flex}
+.yip-chat-x:hover{background:rgba(255,255,255,.15)}
+.yip-chat-log{flex:1;overflow-y:auto;padding:14px;background:var(--mist);display:flex;flex-direction:column;gap:10px}
+.yip-chat-msg{max-width:88%;padding:10px 12px;border-radius:14px;white-space:pre-wrap;overflow-wrap:anywhere}
+.yip-chat-bot{background:#fff;border:1px solid #d9ece9;align-self:flex-start;border-bottom-left-radius:4px}
+.yip-chat-me{background:var(--navy-2);color:#fff;align-self:flex-end;border-bottom-right-radius:4px}
+.yip-chat-msg a{color:var(--navy-2);font-weight:700}
+.yip-chat-acts{display:flex;flex-wrap:wrap;gap:8px;padding:10px 14px;border-top:1px solid #e6eef0;background:#fff;max-height:42%;overflow-y:auto}
+.yip-chat-acts:empty{display:none}
+.yip-chat-btn{font:600 14px/1.2 inherit;font-family:inherit;background:#fff;color:var(--navy);border:2px solid var(--navy);border-radius:999px;padding:9px 14px;cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;gap:6px}
+.yip-chat-btn:hover{background:var(--navy);color:#fff}
+.yip-chat-btn.primary{background:var(--navy);color:#fff}
+.yip-chat-btn.primary:hover{background:var(--teal);border-color:var(--teal)}
+.yip-chat-btn[disabled]{opacity:.6;cursor:default}
+.yip-chat-form{padding:12px 14px;overflow-y:auto;flex:1;background:#fff}
+.yip-chat-form label.l{display:block;font-weight:700;font-size:13px;color:var(--navy);margin:8px 0 3px}
+.yip-chat-form input[type=text],.yip-chat-form input[type=tel],.yip-chat-form input[type=email],.yip-chat-form select,.yip-chat-form textarea{width:100%;padding:10px 12px;border:1px solid #cfdcdf;border-radius:10px;font:inherit;background:#fff;color:var(--ink)}
+.yip-chat-warn{margin:10px 0;padding:8px 10px;background:var(--teal-soft);border-radius:10px;font-size:13px;color:var(--navy);font-weight:600}
+.yip-chat-consent{display:flex;gap:8px;align-items:flex-start;font-size:12.5px;color:var(--muted);margin:8px 0}
+.yip-chat-consent input{margin-top:3px;flex:none}
+.yip-chat-consent a{color:var(--navy-2)}
+.yip-chat-err{color:#b42318;font-weight:700;font-size:13px;margin-top:6px}
+.yip-chat-form .row{display:flex;gap:8px;margin-top:10px}
+@media(max-width:480px){.yip-chat-panel{right:8px;left:8px;bottom:8px;width:auto;max-width:none;height:calc(100dvh - 16px);max-height:calc(100dvh - 16px)}.yip-chat-launch{right:12px;bottom:12px}}
+.yip-chat [hidden]{display:none!important}
+.yip-bar{display:none}
+@media(max-width:768px){
+  .yip-bar{display:flex;position:fixed;left:0;right:0;bottom:0;z-index:2147482999;gap:10px;padding:8px 12px calc(8px + env(safe-area-inset-bottom));background:#fff;border-top:1px solid #d9ece9;box-shadow:0 -4px 16px rgba(16,39,74,.12);font-family:system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif}
+  .yip-bar-btn{flex:1;display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:48px;border-radius:999px;background:#10274a;color:#fff;border:2px solid #10274a;font-weight:700;font-size:16px;text-decoration:none}
+  .yip-bar-btn.alt{background:#fff;color:#10274a}
+  .yip-bar-btn svg{width:20px;height:20px}
+  .yip-bar-btn:focus-visible{outline:3px solid #2bb3a6;outline-offset:2px}
+  body.yip-has-bar{padding-bottom:calc(64px + env(safe-area-inset-bottom))}
+  .yip-chat-launch{bottom:calc(72px + env(safe-area-inset-bottom));min-height:44px}
+  .yip-chat-panel{bottom:8px}
+  .yip-chat-btn{min-height:44px}
+  .yip-chat-x{min-width:44px;min-height:44px;align-items:center;justify-content:center}
+  .yip-chat-form input[type=text],.yip-chat-form input[type=tel],.yip-chat-form input[type=email],.yip-chat-form select{min-height:44px}
+  .yip-chat-consent input{width:22px;height:22px;margin-top:0}
+}
+
+.yip-menu-btn{display:none;align-items:center;justify-content:center;width:44px;height:44px;margin-left:8px;border:2px solid #10274a;border-radius:12px;background:#fff;color:#10274a;cursor:pointer;padding:0}
+.yip-menu-btn svg{width:22px;height:22px}
+.yip-menu-btn:focus-visible,.yip-menu a:focus-visible{outline:3px solid #2bb3a6;outline-offset:2px}
+.yip-menu{display:none;font-family:system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif}
+@media(max-width:900px){
+  .yip-menu-btn{display:inline-flex}
+  header .bar .actions{display:flex;align-items:center}
+  .yip-menu:not([hidden]){display:flex;flex-direction:column;position:absolute;left:0;right:0;top:100%;background:#fff;border-bottom:1px solid #d9ece9;box-shadow:0 12px 24px rgba(16,39,74,.15);padding:6px 20px 12px;z-index:50}
+  .yip-menu a{display:flex;align-items:center;min-height:48px;color:#10274a;font-weight:700;font-size:17px;text-decoration:none;border-bottom:1px solid #eef4f4}
+}
+@media(max-width:420px){header .bar .actions .btn{padding:10px 12px!important;font-size:13px!important}header .brand-text small{display:none}}

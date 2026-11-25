@@ -2,10 +2,22 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self' https://formsubmit.co https://script.google.com https://script.googleusercontent.com; form-action 'self' https://formsubmit.co; frame-src 'none'; object-src 'none'; base-uri 'self'; upgrade-insecure-requests">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<script>if(top!==self){try{top.location=self.location}catch(e){document.documentElement.style.display='none'}}</script>
+<link rel="canonical" href="https://yourinspro.com/book/">
+<link rel="icon" type="image/png" href="../assets/emblem.png">
+<link rel="apple-touch-icon" href="../assets/emblem.png">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Your Insurance Pro">
+<meta property="og:title" content="Book a Meeting | Your Insurance Pro">
+<meta property="og:description" content="Book a phone call with Jose Lopez at Your Insurance Pro. Pick a day and time that works for you.">
+<meta property="og:url" content="https://yourinspro.com/book/">
+<meta property="og:image" content="https://yourinspro.com/assets/logo.png">
+<meta name="twitter:card" content="summary">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Book a Meeting | Your Insurance Pro</title>
-<meta name="description" content="Book a phone call or in-person life insurance meeting with Jose Lopez at Your Insurance Pro. Pick a day and time that works for you.">
-<link rel="canonical" href="https://yourinspro.com/book/">
+<meta name="description" content="Book a phone call with Jose Lopez at Your Insurance Pro. Pick a day and time that works for you.">
 <style>:root{--bk-title:var(--navy);--bk-muted:var(--muted);--bk-accent:var(--teal);--bk-accent-dark:#1f8f85;--bk-soft:var(--teal-soft);--bk-border:#d9ece9;--bk-r:var(--radius);--bk-icbg:var(--navy);--bk-icfg:#fff;--bk-head:inherit}
 
   :root{
@@ -221,10 +233,11 @@ footer{padding:40px 0 30px}
       <li><a href="../index.html#about">About</a></li>
       <li><a href="../index.html#process">How it works</a></li>
       <li><a href="../index.html#contact">Contact</a></li>
+      <li><a href="../carriers.html">Carriers &amp; Help</a></li>
       <li><a href="./" aria-current="page">Book a meeting</a></li>
     </ul></nav>
     <div class="actions">
-      <a class="btn ghost ph" href="https://customerservice.agentinsure.com/EzLynxCustomerService/web/yourinsurancepr/account/login" target="_blank" rel="noopener">Current policyholder</a>
+      <a class="btn ghost ph" href="../carriers.html">Carriers &amp; Help</a>
       <a class="btn" href="../quote.html">Get a quote</a>
     </div>
   </div>
@@ -294,7 +307,7 @@ footer{padding:40px 0 30px}
             <label for="website">Leave this field empty</label>
             <input id="website" name="website" type="text" tabindex="-1" autocomplete="off">
           </div>
-          <label class="consent"><input id="f-consent" type="checkbox" required> <span>By booking you agree Jose (Your Insurance Pro) may contact you by phone, text, or email about this appointment</span></label>
+          <label class="consent"><input id="f-consent" name="consent" type="checkbox" value="Yes" required> <span id="consentText">By booking, I agree that Your Insurance Pro may contact me at the phone number and email I provided by call, text message and email, including calls and texts sent using automated technology, about insurance quotes, policies and services from Your Insurance Pro. Message frequency varies. Message and data rates may apply. Reply STOP to opt out, HELP for help. Consent is not a condition of purchase. See our <a href="../terms.html">Terms</a> and <a href="../privacy.html">Privacy Policy</a>.</span></label>
           <p class="err" id="e-consent" role="alert"></p>
           <p id="formStatus" class="status err-block" role="alert"></p>
           <div class="nav-row">
@@ -318,7 +331,7 @@ footer{padding:40px 0 30px}
 
 
 <footer><div class="wrap">
-  <div class="legal"><a href="../terms.html">Terms &amp; Conditions</a> &nbsp;·&nbsp; <a href="../privacy.html">Privacy Policy</a><br><b>Licensed insurance agent.</b> FL W481824 · CT 18767602 · GA 3456369 · LA 1023177 · MS 10864102 · VA 1350433<br>© 2026 Your Insurance Pro.</div>
+  <div class="legal"><a href="../terms.html">Terms &amp; Conditions</a> &nbsp;·&nbsp; <a href="../privacy.html">Privacy Policy</a> &nbsp;·&nbsp; <a href="../carriers.html">Carriers &amp; Help</a><br><b>Licensed insurance agent.</b> FL W481824 · CT 18767602 · GA 3456369 · LA 1023177 · MS 10864102 · VA 1350433<br>© 2026 Your Insurance Pro.</div>
 </div></footer>
 
 <script>
@@ -330,7 +343,7 @@ footer{padding:40px 0 30px}
   const PHONE_LABEL = '(904) 567-3776';
   const PHONE_TEL = '+19045673776';
   const TZ = 'America/New_York';
-  const TYPES = [{"id": "inperson45", "name": "45 Minute in Person Life Insurance Meeting", "minutes": 45, "description": "Let's talk about how we can protect your Family, Business and/or Assets.", "location": "800 Oakleaf Plantation Pkwy", "mode": "inperson", "icon": "<svg viewBox=\"0 0 24 24\"><path d=\"M20 10c0 6-8 12-8 12S4 16 4 10a8 8 0 0 1 16 0z\"/><circle cx=\"12\" cy=\"10\" r=\"3\"/></svg>"}, {"id": "call30", "name": "30 Minutes Phone Call", "minutes": 30, "description": "Book time with me to discuss needs, explore solutions and collaborate efficiently.", "location": "", "mode": "phone", "icon": "<svg viewBox=\"0 0 24 24\"><path d=\"M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z\"/></svg>"}, {"id": "call15", "name": "15 Minutes Phone Call", "minutes": 15, "description": "Happy to connect. Feel free to book time with me so we can delve into any subject of your choice.", "location": "", "mode": "phone", "icon": "<svg viewBox=\"0 0 24 24\"><circle cx=\"12\" cy=\"12\" r=\"10\"/><path d=\"M12 6v6l4 2\"/></svg>"}];
+  const TYPES = [{"id": "call30", "name": "30 Minutes Phone Call", "minutes": 30, "description": "Book time with me to discuss needs, explore solutions and collaborate efficiently.", "location": "", "mode": "phone", "icon": "<svg viewBox=\"0 0 24 24\"><path d=\"M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z\"/></svg>"}, {"id": "call15", "name": "15 Minutes Phone Call", "minutes": 15, "description": "Happy to connect. Feel free to book time with me so we can delve into any subject of your choice.", "location": "", "mode": "phone", "icon": "<svg viewBox=\"0 0 24 24\"><circle cx=\"12\" cy=\"12\" r=\"10\"/><path d=\"M12 6v6l4 2\"/></svg>"}];
 
   const $ = (id) => document.getElementById(id);
   const apiReady = BOOKING_API_URL && BOOKING_API_URL.indexOf('PASTE_') !== 0;
@@ -500,10 +513,12 @@ footer{padding:40px 0 30px}
     return ok;
   }
 
+  const PAGE_LOADED = Date.now();
   async function submit(e) {
     e.preventDefault();
     const status = $('formStatus');
     status.textContent = '';
+    if (Date.now() - PAGE_LOADED < 4000) { status.textContent = 'Please review your details and press confirm again.'; return; }
     if ($('website').value) { status.textContent = 'Something went wrong. Please try again.'; return; }
     if (!state.type || !state.slot) { status.textContent = 'Please choose a time first.'; return; }
     if (!validate()) return;
@@ -513,7 +528,8 @@ footer{padding:40px 0 30px}
       const res = await apiPost({
         action: 'book', type: state.type.id, start: state.slot,
         name: $('f-name').value.trim().slice(0, 100), email: $('f-email').value.trim().slice(0, 150),
-        phone: $('f-phone').value.trim().slice(0, 30), notes: $('f-notes').value.trim().slice(0, 1000), site: SITE
+        phone: $('f-phone').value.trim().slice(0, 30), notes: $('f-notes').value.trim().slice(0, 1000), site: SITE,
+        consent: true, consentText: $('consentText').textContent.trim(), consentTime: new Date().toISOString(), pageUrl: location.href
       });
       if (res && res.ok) {
         $('doneWhen').textContent = res.when || fmtLong(state.slot);
@@ -549,5 +565,6 @@ footer{padding:40px 0 30px}
 })();
 
 </script>
+<script src="../assets/chat-widget.js" defer></script>
 </body>
 </html>

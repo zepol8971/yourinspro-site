@@ -2,9 +2,22 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self' https://formsubmit.co https://script.google.com https://script.googleusercontent.com; form-action 'self' https://formsubmit.co; frame-src 'none'; object-src 'none'; base-uri 'self'; upgrade-insecure-requests">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<script>if(top!==self){try{top.location=self.location}catch(e){document.documentElement.style.display='none'}}</script>
+<link rel="canonical" href="https://yourinspro.com/quote.html">
+<link rel="icon" type="image/png" href="assets/emblem.png">
+<link rel="apple-touch-icon" href="assets/emblem.png">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Your Insurance Pro">
+<meta property="og:title" content="Get a Quote | Your Insurance Pro">
+<meta property="og:description" content="Request a free home, auto, renters, condo, landlord, life, business or flood insurance quote from Your Insurance Pro. Veteran Owned &amp; Operated. Call or text (904) JOSE-PRO.">
+<meta property="og:url" content="https://yourinspro.com/quote.html">
+<meta property="og:image" content="https://yourinspro.com/assets/logo.png">
+<meta name="twitter:card" content="summary">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Get a Quote | Your Insurance Pro</title>
-<meta name="description" content="Start your free home or auto insurance quote online with Your Insurance Pro, a Veteran-Owned agency.">
+<meta name="description" content="Request a free home, auto, renters, condo, landlord, life, business or flood insurance quote from Your Insurance Pro. Veteran Owned &amp; Operated. Call or text (904) JOSE-PRO.">
 <style>
   :root{
     --navy:#10274a; --navy-2:#1b3a6b; --teal:#2bb3a6; --teal-soft:#dff3f0; --mist:#f3faf9;
@@ -24,45 +37,55 @@
   .brand-text{display:flex;flex-direction:column;line-height:1.1}
   .brand-text b{font-size:27px;font-weight:800;letter-spacing:.01em}
   .brand-text small{font-size:13px;font-weight:600;letter-spacing:.06em;margin-top:6px;color:var(--navy-2)}
-  .btn{display:inline-block;background:var(--navy);color:#fff;padding:14px 26px;border-radius:999px;font-weight:700;text-decoration:none;border:2px solid var(--navy);transition:.2s}
+  .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;background:var(--navy);color:#fff;padding:14px 26px;border-radius:999px;font-weight:700;text-decoration:none;border:2px solid var(--navy);transition:.2s}
   .btn:hover{background:var(--teal);border-color:var(--teal)}
   .btn.ghost{background:transparent;color:var(--navy)} .btn.ghost:hover{background:var(--navy);color:#fff;border-color:var(--navy)}
+  .btn svg{width:20px;height:20px;flex:none}
   .actions{display:flex;gap:12px;align-items:center}
 
   .intro{background:var(--teal-soft)}
   .intro .wrap{padding-top:48px;padding-bottom:40px}
   h1{font-size:clamp(32px,4.4vw,52px);line-height:1.08;margin:0 0 12px;color:var(--navy);letter-spacing:-.02em}
-  .lead{font-size:19px;color:var(--navy-2);max-width:60ch;margin:0}
-  .other{margin-top:18px;color:var(--navy-2)}
-  .other a{font-weight:700;color:var(--navy)}
+  .lead{font-size:19px;color:var(--navy-2);max-width:62ch;margin:0}
+  .callbox{margin-top:24px;display:flex;flex-wrap:wrap;gap:12px;align-items:center}
+  .bignum{display:block;margin-top:22px;font-size:clamp(26px,4vw,38px);font-weight:800;color:var(--navy);text-decoration:none;letter-spacing:-.01em}
+  .bignum small{display:block;font-size:15px;font-weight:600;color:var(--navy-2);letter-spacing:0}
 
-  .quote{padding:28px 0 64px}
-  .frame{border:1px solid #d9ece9;border-radius:var(--radius);overflow:hidden;background:#fff;box-shadow:0 14px 30px rgba(16,39,74,.08)}
-  .frame iframe{display:block;width:100%;height:1500px;border:0}
-  .fallback{margin-top:14px;color:var(--muted);font-size:15px}
-
-  .choices{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:26px}
-  .choice{display:block;text-align:left;cursor:pointer;background:#fff;border:2px solid #cfe7e3;border-radius:var(--radius);padding:20px;font:inherit;color:var(--navy);transition:.2s}
-  .choice:hover{border-color:var(--teal)} .choice.on{border-color:var(--navy);box-shadow:0 10px 24px rgba(16,39,74,.12)}
-  .choice span{font-size:28px} .choice b{display:block;font-size:19px;margin:6px 0 2px} .choice small{color:var(--muted);font-size:14px}
-  @media(max-width:760px){.choices{grid-template-columns:1fr}}
-  .panel[hidden]{display:none}
-  .req{max-width:760px;background:#fff;border:1px solid #d9ece9;border-radius:var(--radius);padding:28px;box-shadow:0 14px 30px rgba(16,39,74,.08)}
-  .req h2{margin:0 0 6px;color:var(--navy)} .req .sub{margin:0 0 18px;color:var(--muted)}
+  .main{padding:40px 0 64px}
+  .grid2{display:grid;grid-template-columns:1.35fr 1fr;gap:28px;align-items:start}
+  .grid2>*{min-width:0}
+  @media(max-width:900px){.grid2{grid-template-columns:minmax(0,1fr)}}
+  .req{min-width:0;background:#fff;border:1px solid #d9ece9;border-radius:var(--radius);padding:28px;box-shadow:0 14px 30px rgba(16,39,74,.08)}
+  .req h2,.side h2{margin:0 0 6px;color:var(--navy)} .req .sub{margin:0 0 18px;color:var(--muted)}
   .row2{display:grid;grid-template-columns:1fr 1fr;gap:14px} @media(max-width:620px){.row2{grid-template-columns:1fr}}
-  .fg{margin-bottom:14px} .fg label{display:block;font-weight:700;font-size:14px;color:var(--navy);margin-bottom:5px}
-  .fg input,.fg select,.fg textarea{width:100%;padding:12px 14px;border:1px solid #cfdcdf;border-radius:12px;font:inherit;background:#fff}
-  .fg input:focus,.fg select:focus,.fg textarea:focus{outline:2px solid var(--teal);border-color:var(--teal)}
+  .fg{margin-bottom:14px} .fg>label,.fg legend{display:block;font-weight:700;font-size:14px;color:var(--navy);margin-bottom:5px}
+  .fg input[type=text],.fg input[type=tel],.fg input[type=email],.fg textarea{width:100%;padding:12px 14px;border:1px solid #cfdcdf;border-radius:12px;font:inherit;background:#fff}
+  .fg input:focus,.fg textarea:focus{outline:2px solid var(--teal);border-color:var(--teal)}
+  fieldset.fg{border:0;padding:0;margin:0 0 14px}
+  .lines{display:grid;grid-template-columns:repeat(3,1fr);gap:8px} @media(max-width:520px){.lines{grid-template-columns:repeat(2,1fr)}}
+  .lines label{display:flex;gap:8px;align-items:center;border:1px solid #cfdcdf;border-radius:12px;padding:10px 12px;font-weight:600;font-size:15px;color:var(--navy);cursor:pointer}
+  .lines label:has(input:checked){border-color:var(--teal);background:var(--mist)}
+  .photo-note{display:flex;gap:12px;align-items:flex-start;background:var(--mist);border:1px dashed var(--teal);border-radius:14px;padding:14px;margin-bottom:14px;color:var(--navy-2);font-size:15px}
+  .photo-note svg{width:26px;height:26px;flex:none;color:var(--teal)}
+  .photo-note a{font-weight:700;color:var(--navy)}
   .consent{display:flex;gap:10px;align-items:flex-start;font-size:14px;color:var(--muted)} .consent input{margin-top:4px}
-  .req button{border:0;cursor:pointer;width:100%;margin-top:6px;font-size:17px}
+  .consent a{color:var(--navy-2)}
+  .req button{border:0;cursor:pointer;width:100%;margin-top:12px;font-size:17px}
   .status{margin-top:12px;font-weight:700} .status.ok{color:#0f766e} .status.err{color:#b42318}
+  .side{min-width:0;display:grid;gap:18px}
+  .tile{background:var(--mist);border:1px solid #d9ece9;border-radius:var(--radius);padding:22px}
+  .tile h3{margin:0 0 8px;color:var(--navy);font-size:18px;display:flex;gap:10px;align-items:center}
+  .tile h3 svg{width:24px;height:24px;color:var(--teal);flex:none}
+  .tile p,.tile ul{margin:0;color:var(--navy-2);font-size:15px} .tile ul{padding-left:18px} .tile li{margin:4px 0}
+  .tile a{font-weight:700;color:var(--navy)}
 
   footer{background:#0b1c37;color:#b9c8dc;padding:40px 0 30px;font-size:15px}
   footer a{text-decoration:none} footer a:hover{color:#fff}
   .legal a{color:#dbe7f5}
   .legal{font-size:13px;opacity:.85}
 
-  @media(max-width:700px){.bar{height:84px}.brand img{height:62px}.brand{gap:10px}.brand-text b{font-size:17px}.brand-text small{font-size:9px;letter-spacing:.03em}.bar .btn{padding:10px 16px;font-size:14px}.ph{display:none}.frame iframe{height:1800px}}
+  @media(max-width:700px){.bar{height:84px}.brand img{height:62px}.brand{gap:10px}.brand-text b{font-size:17px}.brand-text small{font-size:9px;letter-spacing:.03em}.bar .btn{padding:10px 16px;font-size:14px}.ph{display:none}.req{padding:20px}.callbox .btn{flex:1 1 140px;white-space:nowrap}.bar .btn{white-space:nowrap}}
+  @media(max-width:420px){.brand img{height:52px}.brand-text b{font-size:15px}.bar .btn{padding:9px 14px}}
 </style>
 </head>
 <body>
@@ -74,7 +97,7 @@
       <span class="brand-text"><b>YOUR INSURANCE PRO</b><small>Veteran Owned &amp; Operated</small></span>
     </a>
     <div class="actions">
-      <a class="btn ghost ph" href="https://customerservice.agentinsure.com/EzLynxCustomerService/web/yourinsurancepr/account/login" target="_blank" rel="noopener">Current policyholder</a>
+      <a class="btn ghost ph" href="carriers.html">Carriers &amp; Help</a>
       <a class="btn" href="index.html">Home</a>
     </div>
   </div>
@@ -82,129 +105,114 @@
 
 <main>
   <section class="intro"><div class="wrap">
-    <h1>Start your free quote</h1>
-    <p class="lead">Pick the coverage you need. A licensed agent reviews every request and follows up the same business day.</p>
-    <div class="choices" role="tablist">
-      <button class="choice on" data-panel="auto-home" role="tab"><span>🏠🚗</span><b>Home &amp; Auto</b><small>Auto, home, condo or renters. Online in about 5 minutes.</small></button>
-      <button class="choice" data-panel="life" role="tab"><span>❤️</span><b>Life Insurance</b><small>Term or permanent coverage to protect your family.</small></button>
-      <button class="choice" data-panel="business" role="tab"><span>💼</span><b>Business Insurance</b><small>General liability, BOP, commercial auto and more.</small></button>
+    <h1>Get a free quote</h1>
+    <p class="lead">The fastest way is to call or text me. I shop multiple carriers for you and follow up the same business day. No pressure, no obligation.</p>
+    <a class="bignum" href="tel:9045673776">(904) JOSE-PRO<small>(904) 567-3776 · call or text · Mon–Fri 9–5 ET</small></a>
+    <div class="callbox">
+      <a class="btn" href="tel:9045673776"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M5 3h4l2 5-2.5 1.5a11 11 0 0 0 6 6L16 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 5a2 2 0 0 1 2-2z"/></svg>Call</a>
+      <a class="btn" href="sms:+19045673776"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M4 5h16v11H9l-5 4z"/></svg>Text</a>
+      <a class="btn ghost" href="mailto:Quotes@YourInsPro.com"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M3 6h18v12H3zM3 7l9 6 9-6"/></svg>Quotes@YourInsPro.com</a>
     </div>
-    <p class="other">Prefer to talk? Call or text <a href="tel:9045673776">(904) 567-3776</a>.</p>
   </div></section>
 
-  <section class="quote panel" id="life" hidden><div class="wrap">
-    <div class="req life-widget">
-      <h2>Instant life insurance quote</h2>
-      <p class="sub">Compare rates from top-rated carriers in about a minute, then apply online if you like what you see. I'm here to help at every step.</p>
-      <div id="container-id"></div>
-    </div>
-    <form class="req" onsubmit="sendRequest(event,'Life insurance quote request')" style="margin-top:28px">
-      <h2>Rather I shop it for you?</h2>
-      <p class="sub">Tell me a little about what you're looking for and I'll come back with options from multiple carriers. No medical details needed here; we'll go over those privately by phone.</p>
+  <section class="main"><div class="wrap grid2">
+    <form class="req" id="request" onsubmit="sendRequest(event)">
+      <h2>Or send a quick request</h2>
+      <p class="sub">Tell me the basics and I'll reach out to gather the rest.</p>
       <div class="row2">
-        <div class="fg"><label>Full name *</label><input name="Name" required autocomplete="name"></div>
-        <div class="fg"><label>Phone *</label><input name="Phone" type="tel" required autocomplete="tel"></div>
-        <div class="fg"><label>Email *</label><input name="Email" type="email" required autocomplete="email"></div>
-        <div class="fg"><label>State you live in *</label><select name="State" required><option value="">Choose…</option><option>Florida</option><option>Georgia</option><option>Louisiana</option><option>Mississippi</option><option>Virginia</option><option>Connecticut</option><option>Other</option></select></div>
-        <div class="fg"><label>Age</label><input name="Age" inputmode="numeric" placeholder="e.g. 42"></div>
-        <div class="fg"><label>Tobacco or nicotine use?</label><select name="Tobacco"><option value="">Choose…</option><option>No</option><option>Yes</option></select></div>
-        <div class="fg"><label>Type of coverage</label><select name="Coverage type"><option>Not sure, help me decide</option><option>Term life</option><option>Whole / permanent life</option><option>Final expense</option><option>Mortgage protection</option><option>Accident insurance</option><option>Critical illness insurance</option><option>Annuity / retirement income</option></select></div>
-        <div class="fg"><label>Coverage amount</label><select name="Coverage amount"><option>Not sure</option><option>Under $100,000</option><option>$100,000 – $250,000</option><option>$250,000 – $500,000</option><option>$500,000 – $1,000,000</option><option>Over $1,000,000</option></select></div>
+        <div class="fg"><label for="f-name">Full name *</label><input id="f-name" type="text" name="Name" required autocomplete="name"></div>
+        <div class="fg"><label for="f-phone">Mobile phone *</label><input id="f-phone" type="tel" name="Phone" required autocomplete="tel"></div>
+        <div class="fg"><label for="f-email">Email *</label><input id="f-email" type="email" name="Email" required autocomplete="email"></div>
+        <div class="fg"><label for="f-zip">ZIP code *</label><input id="f-zip" type="text" name="ZIP" required inputmode="numeric" pattern="[0-9]{5}" maxlength="5" autocomplete="postal-code"></div>
       </div>
-      <div class="fg"><label>Best time to reach you</label><select name="Best time"><option>Anytime</option><option>Morning</option><option>Afternoon</option><option>Evening</option></select></div>
-      <div class="fg"><label>Anything else?</label><textarea name="Notes" rows="3" placeholder="Who you'd like to protect, existing coverage, etc."></textarea></div>
-      <label class="consent"><input type="checkbox" required> I agree that Your Insurance Pro may contact me by phone, text or email about this request. Message and data rates may apply. *</label>
-      <input type="text" name="_honey" tabindex="-1" autocomplete="off" style="display:none">
-      <button class="btn" type="submit">Request my life quote</button>
+      <fieldset class="fg">
+        <legend>What would you like quoted? *</legend>
+        <div class="lines">
+          <label for="line-home"><input id="line-home" type="checkbox" name="line" value="Home">Home</label>
+          <label for="line-auto"><input id="line-auto" type="checkbox" name="line" value="Auto">Auto</label>
+          <label for="line-renters"><input id="line-renters" type="checkbox" name="line" value="Renters">Renters</label>
+          <label for="line-condo"><input id="line-condo" type="checkbox" name="line" value="Condo">Condo</label>
+          <label for="line-landlord"><input id="line-landlord" type="checkbox" name="line" value="Landlord">Landlord</label>
+          <label for="line-life"><input id="line-life" type="checkbox" name="line" value="Life">Life</label>
+          <label for="line-business"><input id="line-business" type="checkbox" name="line" value="Business">Business</label>
+          <label for="line-flood"><input id="line-flood" type="checkbox" name="line" value="Flood">Flood</label>
+          <label for="line-other"><input id="line-other" type="checkbox" name="line" value="Other">Other</label>
+        </div>
+      </fieldset>
+      <div class="fg"><label for="f-notes">Notes</label><textarea id="f-notes" name="Notes" rows="4" placeholder="Current carrier and renewal date, vehicles, address to quote, best time to reach you, etc."></textarea></div>
+      <div class="photo-note">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" d="M4 8h3l2-3h6l2 3h3v11H4z"/><circle fill="none" stroke="currentColor" stroke-width="1.9" cx="12" cy="13" r="3.5"/></svg>
+        <span><b>Documents:</b> no upload needed. Text photos of your current declarations (dec) page and driver's license to <a href="sms:+19045673776">(904) JOSE-PRO</a>, (904) 567-3776, or email them to <a href="mailto:Quotes@YourInsPro.com">Quotes@YourInsPro.com</a>.</span>
+      </div>
+      <label class="consent" for="f-consent"><input id="f-consent" type="checkbox" name="Contact consent" value="Yes" required> <span>I agree that Your Insurance Pro may contact me at the phone number and email I provided by call, text message and email, including calls and texts sent using automated technology, about insurance quotes, policies and services from Your Insurance Pro. Message frequency varies. Message and data rates may apply. Reply STOP to opt out, HELP for help. Consent is not a condition of purchase. See our <a href="terms.html">Terms</a> and <a href="privacy.html">Privacy Policy</a>. *</span></label>
+      <input type="text" name="_honey" tabindex="-1" autocomplete="off" style="display:none" aria-hidden="true">
+      <button class="btn" type="submit">Send my quote request</button>
       <div class="status" role="status"></div>
     </form>
-  </div></section>
 
-  <section class="quote panel" id="business" hidden><div class="wrap">
-    <form class="req" onsubmit="sendRequest(event,'Business insurance quote request')">
-      <h2>Business insurance quote</h2>
-      <p class="sub">Share the basics and I'll shop carriers that fit your type of business.</p>
-      <div class="row2">
-        <div class="fg"><label>Your name *</label><input name="Name" required autocomplete="name"></div>
-        <div class="fg"><label>Business name *</label><input name="Business name" required autocomplete="organization"></div>
-        <div class="fg"><label>Phone *</label><input name="Phone" type="tel" required autocomplete="tel"></div>
-        <div class="fg"><label>Email *</label><input name="Email" type="email" required autocomplete="email"></div>
-        <div class="fg"><label>What does the business do? *</label><input name="Business type" required placeholder="e.g. restaurant, contractor, retail"></div>
-        <div class="fg"><label>Business state *</label><select name="State" required><option value="">Choose…</option><option>Florida</option><option>Georgia</option><option>Louisiana</option><option>Mississippi</option><option>Virginia</option><option>Connecticut</option><option>Other</option></select></div>
-        <div class="fg"><label>Years in business</label><select name="Years in business"><option>Not started yet</option><option>Less than 1</option><option>1–3</option><option>3–5</option><option>5+</option></select></div>
-        <div class="fg"><label>Number of employees</label><input name="Employees" inputmode="numeric" placeholder="e.g. 4"></div>
-        <div class="fg"><label>Approximate annual revenue</label><input name="Annual revenue" placeholder="e.g. $250,000"></div>
-        <div class="fg"><label>Current policy renews on</label><input name="Renewal date" type="date"></div>
+    <aside class="side">
+      <div class="tile">
+        <h3><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" d="M9 5h10M9 12h10M9 19h10M4 5h.01M4 12h.01M4 19h.01"/></svg>Have these handy</h3>
+        <ul>
+          <li>Your current declarations page (if insured now)</li>
+          <li>Driver's license for each driver</li>
+          <li>Vehicle VINs or year, make and model</li>
+          <li>Home address, year built and roof year</li>
+        </ul>
       </div>
-      <div class="fg"><label>Coverage you need</label><select name="Coverage needed"><option>Not sure, help me decide</option><option>General liability</option><option>Business owners policy (BOP)</option><option>Commercial auto / commercial vehicles</option><option>Trucking</option><option>Workers' compensation</option><option>Professional liability</option><option>Liquor liability</option><option>Several of these</option></select></div>
-      <div class="fg"><label>Current or prior policy documents <span style="font-weight:500;color:var(--muted)">(optional, but it speeds things up)</span></label>
-        <input type="file" name="Policy documents" multiple accept=".pdf,.jpg,.jpeg,.png,.heic,.doc,.docx">
-        <small style="display:block;color:var(--muted);margin-top:6px">Declarations page, loss runs, or a photo of your current policy. PDF or photos, up to 5 MB total. You can also email them to Quotes@YourInsPro.com.</small></div>
-      <div class="fg"><label>Anything else?</label><textarea name="Notes" rows="3" placeholder="Locations, vehicles, contracts that require certificates, etc."></textarea></div>
-      <label class="consent"><input type="checkbox" required> I agree that Your Insurance Pro may contact me by phone, text or email about this request. Message and data rates may apply. *</label>
-      <input type="text" name="_honey" tabindex="-1" autocomplete="off" style="display:none">
-      <button class="btn" type="submit">Request my business quote</button>
-      <div class="status" role="status"></div>
-    </form>
-  </div></section>
-
-  <section class="quote panel" id="auto-home"><div class="wrap">
-    <div class="frame">
-      <iframe src="https://www.agentinsure.com/compare/auto-insurance-home-insurance/yourinsurancepr/quote.aspx" name="Secure Live Insurance Quoting" title="Secure online insurance quote form" loading="lazy"></iframe>
-    </div>
-    <p class="fallback">Form not showing? <a href="https://www.agentinsure.com/compare/auto-insurance-home-insurance/yourinsurancepr/quote.aspx" target="_blank" rel="noopener">Open the secure quote form in a new window</a>.</p>
+      <div class="tile" id="life">
+        <h3><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" d="M12 20s-7.5-4.4-7.5-10A4.3 4.3 0 0 1 12 7.3 4.3 4.3 0 0 1 19.5 10c0 5.6-7.5 10-7.5 10z"/></svg>Life insurance</h3>
+        <p>Quick online quotes from top-rated carriers. Compare rates in about a minute, then apply online.</p>
+        <p style="margin-top:12px"><a class="btn" href="https://app.back9ins.com/apply/JoseLopez" target="_blank" rel="noopener" style="color:#fff">Get a life quote</a></p>
+      </div>
+      <div class="tile">
+        <h3><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"/><path fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" d="M8.5 12l2.5 2.5 4.5-5"/></svg>Already a client?</h3>
+        <p>Need an ID card, a payment link or to file a claim? Find your carrier's numbers on our <a href="carriers.html">Carriers &amp; Help</a> page, or call or text me.</p>
+      </div>
+    </aside>
   </div></section>
 </main>
 
 <footer><div class="wrap">
-  <div class="legal"><a href="terms.html">Terms &amp; Conditions</a> &nbsp;·&nbsp; <a href="privacy.html">Privacy Policy</a><br><b>Licensed insurance agent.</b> FL W481824 · CT 18767602 · GA 3456369 · LA 1023177 · MS 10864102 · VA 1350433<br>© 2026 Your Insurance Pro.</div>
+  <div class="legal"><a href="terms.html">Terms &amp; Conditions</a> &nbsp;·&nbsp; <a href="privacy.html">Privacy Policy</a> &nbsp;·&nbsp; <a href="carriers.html">Carriers &amp; Help</a><br><b>Licensed insurance agent.</b> FL W481824 · CT 18767602 · GA 3456369 · LA 1023177 · MS 10864102 · VA 1350433<br>Quotes are not binding. Coverage is not in effect until confirmed by the insurance company.<br>© 2026 Your Insurance Pro.</div>
 </div></footer>
 
 <script>
-/* Quote chooser: Home & Auto uses the EZLynx form; life and business requests are emailed to the
-   agency through FormSubmit (the first submission sends an activation email to Quotes@YourInsPro.com). */
+/* Quote requests are emailed to the agency through FormSubmit (already activated for Quotes@YourInsPro.com).
+   No file uploads: clients text or email their documents. */
 const FORM_ENDPOINT = 'https://formsubmit.co/ajax/Quotes@YourInsPro.com';
-function showPanel(id) {
-  document.querySelectorAll('.choice').forEach(b => b.classList.toggle('on', b.dataset.panel === id));
-  document.querySelectorAll('.panel').forEach(p => p.hidden = p.id !== id);
-}
-document.querySelectorAll('.choice').forEach(b => b.addEventListener('click', () => {
-  showPanel(b.dataset.panel); history.replaceState(null, '', '#' + b.dataset.panel);
-  document.getElementById(b.dataset.panel).scrollIntoView({ behavior: 'smooth', block: 'start' });
-}));
-const start = location.hash.slice(1);
-if (document.getElementById(start) && document.getElementById(start).classList.contains('panel')) showPanel(start);
-async function sendRequest(e, kind) {
+const PAGE_LOADED = Date.now();
+async function sendRequest(e) {
   e.preventDefault();
   const form = e.target, status = form.querySelector('.status'), btn = form.querySelector('button[type=submit]');
   if (form.querySelector('[name=_honey]').value) return;
-  const data = { _subject: kind + ' - YourInsPro.com', _template: 'table', _captcha: 'false' };
-  form.querySelectorAll('input[name],select[name],textarea[name]').forEach(el => { if (el.name !== '_honey' && el.type !== 'file' && el.value) data[el.name] = el.value; });
-  const files = [...form.querySelectorAll('input[type=file]')].flatMap(f => [...f.files]);
-  if (files.reduce((n, f) => n + f.size, 0) > 5 * 1024 * 1024) {
-    status.className = 'status err'; status.textContent = 'Your files are over 5 MB total. Please attach fewer or smaller files, or email them to Quotes@YourInsPro.com.'; return;
-  }
-  btn.disabled = true; status.className = 'status'; status.textContent = 'Sending… this can take up to a minute, please keep this page open.';
+  if (Date.now() - PAGE_LOADED < 4000) { status.className = 'status err'; status.textContent = 'Please review your details and press send again.'; return; }
+  const lines = [...form.querySelectorAll('input[name=line]:checked')].map(x => x.value);
+  if (!lines.length) { status.className = 'status err'; status.textContent = 'Please pick at least one type of coverage.'; return; }
+  const data = { _subject: 'Quote request (' + lines.join(', ') + ') - YourInsPro.com', _template: 'table', _captcha: 'false', 'Coverage wanted': lines.join(', ') };
+  form.querySelectorAll('input[name],textarea[name]').forEach(el => {
+    if (el.name === '_honey' || el.name === 'line') return;
+    if (el.type === 'checkbox') { if (el.checked) data[el.name] = el.value; return; }
+    if (el.value) data[el.name] = el.value;
+  });
+  data['Consent wording'] = form.querySelector('.consent span').textContent.trim();
+  data['Consent timestamp'] = new Date().toISOString();
+  data['Page URL'] = location.href;
+  data['_honey'] = '';
+  btn.disabled = true; status.className = 'status'; status.textContent = 'Sending... this can take up to a minute, please keep this page open.';
   const ctl = new AbortController(), timer = setTimeout(() => ctl.abort(), 120000);
   try {
-    let init;
-    if (files.length) {
-      const fd = new FormData();
-      Object.entries(data).forEach(([k, v]) => fd.append(k, v));
-      files.forEach((f, i) => fd.append('Document ' + (i + 1), f));
-      init = { method: 'POST', signal: ctl.signal, headers: { 'Accept': 'application/json' }, body: fd };
-    } else init = { method: 'POST', signal: ctl.signal, headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' }, body: JSON.stringify(data) };
-    const r = await fetch(FORM_ENDPOINT, init);
+    const r = await fetch(FORM_ENDPOINT, { method: 'POST', signal: ctl.signal, headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' }, body: JSON.stringify(data) });
     const j = await r.json();
     if (!r.ok || String(j.success) === 'false') throw new Error('send failed');
-    form.reset(); status.className = 'status ok'; status.textContent = "Thanks! I got your request and will reach out the same business day. — Jose";
+    form.reset(); status.className = 'status ok'; status.textContent = 'Thanks! I got your request and will reach out the same business day. Text your dec page and license photos to (904) JOSE-PRO to speed things up. - Jose';
   } catch (err) {
-    status.className = 'status err'; status.textContent = "Sorry, that didn't go through. Please call or text (904) 567-3776.";
+    status.className = 'status err'; status.textContent = "Sorry, that didn't go through. Please call or text (904) JOSE-PRO, (904) 567-3776.";
   }
   clearTimeout(timer);
   btn.disabled = false;
 }
 </script>
-<script id="strife" src="https://cdn.quoteandapply.io/widget.js" data-strife-key="96F03puHlWIf0-CW" data-strife-container-id="container-id"></script>
+<script src="assets/chat-widget.js" defer></script>
 </body>
 </html>
