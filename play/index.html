@@ -210,7 +210,7 @@ function dent(msg){
 }
 function end(){
   running=false;cancelAnimationFrame(raf);SFX.over();if(engine&&AC)engine.gn.gain.setTargetAtTime(0,AC.currentTime,.05);
-  speak("Claim filed! Get covered at Your Ins Pro dot com.",{pitch:1,rate:1});
+  speak("Claim filed! Get a quote with Your Insurance Pro.",{pitch:1,rate:1});
   const score=Math.floor(S.dist)+S.busts*50;
   document.getElementById("overText").textContent=`You drove ${Math.floor(S.dist)} ft and photographed ${S.busts} faker${S.busts===1?"":"s"}. Score: ${score}. The donut cops didn't notice a thing. Real coverage: YourInsPro.com`;
   document.getElementById("overOv").hidden=false;
