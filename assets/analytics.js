@@ -4,7 +4,7 @@
    Choice is remembered in this browser; "Cookie settings" link in the footer reopens it. */
 (function () {
   var CF_TOKEN = "41b3bd086dab435692b5edc115a4d7ca";      // Cloudflare Web Analytics beacon token
-  var GA_ID = "__GA_ID__";            // Google Analytics 4 measurement ID (G-...)
+  var GA_ID = "G-0KTN9TCDMH";            // Google Analytics 4 measurement ID (G-...)
   var KEY = "yip-analytics-consent";  // "yes" | "no"
 
   function add(src, attrs) {
