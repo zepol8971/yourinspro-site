@@ -28,6 +28,7 @@
     window.gtag = function () { window.dataLayer.push(arguments); };
     window.gtag("js", new Date());
     window.gtag("config", GA_ID, { anonymize_ip: true });
+    setTimeout(flush, 0);
     add("https://www.googletagmanager.com/gtag/js?id=" + encodeURIComponent(GA_ID), {});
   }
 
@@ -53,6 +54,24 @@
     d.querySelector(".n").onclick = function () { set("no"); d.remove(); };
     document.body.appendChild(d);
   }
+
+  // Conversions: queued until GA is allowed; dropped if the visitor said no.
+  var queue = [];
+  window.yipTrack = function (name, params) {
+    try {
+      if (gaLoaded && window.gtag) window.gtag("event", name, params || {});
+      else if (get() !== "no") queue.push([name, params || {}]);
+    } catch (e) {}
+  };
+  function flush() { while (queue.length && window.gtag) { var q = queue.shift(); window.gtag("event", q[0], q[1]); } }
+  document.addEventListener("click", function (e) {
+    var a = e.target && e.target.closest ? e.target.closest("a[href]") : null;
+    if (!a) return;
+    var h = a.getAttribute("href") || "";
+    if (h.indexOf("tel:") === 0) window.yipTrack("contact_click", { method: "call" });
+    else if (h.indexOf("sms:") === 0) window.yipTrack("contact_click", { method: "text" });
+    else if (/quote\.html|\/book\//.test(h)) window.yipTrack("start_quote_click", { link: h });
+  }, true);
 
   window.yipCookieSettings = function () { banner(); return false; };
 

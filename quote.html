@@ -205,7 +205,7 @@ async function sendRequest(e) {
     const r = await fetch(FORM_ENDPOINT, { method: 'POST', signal: ctl.signal, headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' }, body: JSON.stringify(data) });
     const j = await r.json();
     if (!r.ok || String(j.success) === 'false') throw new Error('send failed');
-    form.reset(); status.className = 'status ok'; status.textContent = 'Thanks! I got your request and will reach out the same business day. Text your dec page and license photos to (904) JOSE-PRO to speed things up. - Jose';
+    form.reset(); window.yipTrack && window.yipTrack('generate_lead', { method: 'quote_form' }); status.className = 'status ok'; status.textContent = 'Thanks! I got your request and will reach out the same business day. Text your dec page and license photos to (904) JOSE-PRO to speed things up. - Jose';
   } catch (err) {
     status.className = 'status err'; status.textContent = "Sorry, that didn't go through. Please call or text (904) JOSE-PRO, (904) 567-3776.";
   }

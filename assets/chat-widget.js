@@ -134,6 +134,7 @@
   var opened = 0;
   function leadForm(kind) {
     removeForm();
+          if (window.yipTrack) window.yipTrack('generate_lead', { method: kind === 'quote' ? 'chat_quote' : 'chat_callback' });
     say(kind === 'quote' ? 'Great. Tell me a little about what you need.' : 'Happy to set up a callback. Where should Jose reach you?', 'bot');
     log.hidden = true; acts.hidden = true;
     var f = el('form', 'yip-chat-form', null, { novalidate: 'novalidate', 'aria-label': kind === 'quote' ? 'Quote request' : 'Callback request' });

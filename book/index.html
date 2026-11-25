@@ -534,6 +534,7 @@ footer{padding:40px 0 30px}
       if (res && res.ok) {
         $('doneWhen').textContent = res.when || fmtLong(state.slot);
         $('doneType').textContent = state.type.name;
+        window.yipTrack && window.yipTrack('generate_lead', { method: 'booking' });
         showStep('done');
       } else {
         status.textContent = (res && res.error) || 'We could not complete the booking. Please pick another time or call or text Jose at ' + PHONE_LABEL + '.';
