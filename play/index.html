@@ -158,13 +158,21 @@ function update(dt){
   S.py=Math.max(H-185,Math.min(H-85,S.py+vdir*220*dt));
   const vy=S.speed*dt;
 
-  if((S.nextCar-=dt)<=0){S.nextCar=Math.max(.6,1.45-S.t/90);S.traffic.push({x:laneX((Math.random()*LANES)|0),y:-90,col:CAR_COLORS[(Math.random()*6)|0],v:60+Math.random()*80});}
+  if((S.nextCar-=dt)<=0){S.nextCar=Math.max(.66,1.6-S.t/90);
+    // pick a lane with room at the top, and always leave at least one lane open in that stretch of road
+    const near=(l,y0,y1)=>S.traffic.some(c=>Math.abs(c.x-laneX(l))<5&&c.y>y0&&c.y<y1)||S.wrecks.some(w=>w.lane===l&&w.y>y0&&w.y<y1);
+    const free=[0,1,2].filter(l=>!near(l,-260,220));
+    const blockedBand=[0,1,2].filter(l=>near(l,-260,420)).length;
+    if(free.length&&blockedBand<LANES-1){const l=free[(Math.random()*free.length)|0];S.traffic.push({x:laneX(l),y:-90,col:CAR_COLORS[(Math.random()*6)|0],v:60+Math.random()*80});}}
   if((S.nextCrash-=dt)<=0){S.nextCrash=2.9+Math.random()*2.2;spawnCrash();}
   if((S.nextPed-=dt)<=0){S.nextPed=.5;spawnPed();}
   if((S.nextBoard-=dt)<=0){S.nextBoard=6;S.boards.push({y:-160,left:Math.random()<.5});}
   if((S.nextCop-=dt)<=0){S.nextCop=7+Math.random()*4;S.cops.push({y:-100,left:Math.random()<.5,said:false});}
 
   for(const c of S.traffic) c.y+=vy-c.v*dt;
+  // no rear-ending each other: a car that catches up to the one ahead in its lane slows to match it
+  for(const a of S.traffic) for(const b of S.traffic){ if(a!==b&&Math.abs(a.x-b.x)<5&&b.y<a.y&&a.y-b.y<130){ b.y=a.y-130; b.v=Math.max(b.v,a.v);} }
+  for(const c of S.traffic) for(const w of S.wrecks){ if(Math.abs(c.x-w.x)<5&&c.y<w.y&&w.y-c.y<140) c.y=w.y-140; }
   for(const w of S.wrecks){
     w.y+=vy; w.smoke+=dt;
     if(!w.floppersSent&&w.y>80){
